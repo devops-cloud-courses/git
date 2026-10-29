@@ -31,6 +31,14 @@
 
 ----
 
+### Popular Git Hosting Platforms
+
+* **GitHub** — Largest open-source & enterprise platform (GitHub Actions, Pull Requests)
+* **GitLab** — Complete DevSecOps platform (self-hosted or SaaS with GitLab CI/CD)
+* **Bitbucket** — Atlassian's Git solution (tight integration with Jira & Trello)
+
+----
+
 ### Everything is a snapshot: Deltas (Other VCS)
 
 <img src="images/deltas.svg" alt="Delta-based VCS" />
@@ -43,17 +51,25 @@
 
 ----
 
+### Inside `.git`: Integrity & Hashing
+
+* Git verifies data integrity using cryptographic checksums (`SHA-1` / `SHA-256`)
+* Every object (`blob`, `tree`, `commit`, `tag`) is addressed by its **40-character hexadecimal hash**
+* Almost every Git operation only **adds data** to the `.git` database, making it very hard to lose committed work
+
+----
+
 ### Inside `.git`: Object Graph
 
 <img src="images/object-graph.svg" alt="Git Object Graph" />
 
 ----
 
-### Inside `.git`: Integrity & Hashing
+### The Three Areas of a Git Project
 
-* Git verifies data integrity using cryptographic checksums (`SHA-1` / `SHA-256`)
-* Every object (blob, tree, commit, tag) is addressed by its **40-character hexadecimal hash**
-* Almost every Git operation only **adds data** to the Git database, making it very hard to lose committed work
+* **Working Directory**: A single checked-out version of the project on your local filesystem
+* **Staging Area (`Index`)**: Tracks which modified files will go into your **next commit**
+* **Git Directory (`.git`)**: The compressed database storing all metadata and object history for your project
 
 ----
 
@@ -63,18 +79,9 @@
 
 ----
 
-### The Three Areas of a Git Project
-
-* **Git Directory (`.git`)**: The compressed database storing all metadata and object history for your project
-* **Working Directory**: A single checked-out version of the project on your local filesystem
-* **Staging Area (`Index`)**: A file that tracks which modified snapshots will go into your **next commit**
-
-----
-
 ### Installation & First-Time Setup
 
-* [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* [First-Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+* [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) & [First-Time Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
 
 ```bash
 git config --global user.name "Jane Doe"
@@ -97,11 +104,3 @@ git help <verb>
 man git-<verb>
 git <verb> -h
 ```
-
-----
-
-### Popular Git Hosting Platforms
-
-* **GitHub** — Largest open-source & enterprise platform (GitHub Actions, Pull Requests)
-* **GitLab** — Complete DevSecOps platform (self-hosted or SaaS with GitLab CI/CD)
-* **Bitbucket** — Atlassian's Git solution (tight integration with Jira & Trello)

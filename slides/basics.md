@@ -2,11 +2,15 @@
 
 ----
 
-### Cloning a Git Repository
+### Initializing or Cloning a Repository
 
-* Clone a full local copy of an existing remote repository:
+* Initialize a brand-new Git repository in an existing local folder (creates `.git/`), or clone an existing remote repository:
 
 ```bash
+# Option 1: Turn current directory into a new Git repository
+git init
+
+# Option 2: Clone a full local copy of an existing remote repository
 git clone <url>
 ```
 
@@ -16,7 +20,7 @@ git clone <url>
 
 * **Untracked**: File is not in the last snapshot and not in the staging area
 * **Tracked**: File is known to Git and can be in one of three states:
-  * `Unmodified (Committed)` — safely stored in your local Git database
+  * `Unmodified (Committed)` — safely stored in your local `.git` database
   * `Modified` — changed in your working directory, but not staged yet
   * `Staged` — marked in its current version to go into your next commit snapshot
 
@@ -37,22 +41,19 @@ git status
 ```
 
 * Common option:
-  * `-s` / `--short` — display status in a compact format
+  * `-s` / `--short` — display status in a compact two-column format
 
 ----
 
-### Staging Files
+### Staging Files (`git add`)
 
 Stage new (`untracked`) or updated (`modified`) files into the **Staging Area**:
 
 ```bash
-git add <files>
-```
-
-* Examples:
-
-```bash
+# Stage a specific file
 git add myfile.txt
+
+# Stage all new and modified files in the current directory
 git add .
 ```
 
@@ -86,12 +87,12 @@ git diff --staged   # (or: git diff --cached)
 
 ----
 
-### Committing Changes
+### Committing Changes (`git commit`)
 
 Record your staged snapshot into the repository history:
 
 ```bash
-git commit
+git commit -m "feat(api): add healthcheck endpoint"
 ```
 
 * Common options:
@@ -113,9 +114,39 @@ Format: `<type>(<scope>): <short summary>` — powers automated changelogs and S
 
 ----
 
-### Removing Files
+### Unstaging a File
 
-* Remove tracked files from Git (with or without deleting them from disk):
+Move a file from the **Staging Area** back to `modified` (without losing your file edits):
+
+```bash
+# Modern syntax (Git 2.23+)
+git restore --staged <file>
+
+# Classic syntax
+git reset HEAD <file>
+```
+
+----
+
+### Discarding Local Modifications
+
+Revert a `modified` file in your working directory back to its last committed state:
+
+```bash
+# Modern syntax (Git 2.23+)
+git restore <file>
+
+# Classic syntax
+git checkout -- <file>
+```
+
+> **Warning:** Discarding local modifications cannot be undone — uncommitted changes in that file are permanently lost.
+
+----
+
+### Removing & Moving Files
+
+* Remove or rename tracked files and stage the change in one step:
 
 ```bash
 # Remove from both Working Directory and Staging Area
@@ -123,26 +154,22 @@ git rm <file>
 
 # Stop tracking in Git while keeping the file on disk (untracked)
 git rm --cached <file>
-```
 
-----
-
-### Moving or Renaming Files
-
-Move or rename a tracked file and stage the change in one step:
-
-```bash
+# Move or rename a tracked file
 git mv <from> <to>
 ```
 
 ----
 
-### Viewing Commit History
+### Viewing Commit History (`git log`)
 
 Inspect the chronological history of commits in the current branch:
 
 ```bash
 git log
+
+# Compact one-line view with abbreviated 7-character SHA hashes
+git log --oneline --graph
 ```
 
 ----
@@ -178,33 +205,3 @@ git log
 | `--all-match` | Require commits to match all given `--grep` / `--author` criteria |
 | `-S <string>` | *Pickaxe search*: only show commits that added or removed `<string>` |
 | `--no-merges` | Hide merge commits (commits with more than one parent) |
-
-----
-
-### Unstaging a File
-
-Move a file from the **Staging Area** back to `modified` (without losing your edits):
-
-```bash
-# Modern syntax (Git 2.23+)
-git restore --staged <file>
-
-# Classic syntax
-git reset HEAD <file>
-```
-
-----
-
-### Discarding Local Modifications
-
-Revert a `modified` file in your working directory back to its last committed state:
-
-```bash
-# Modern syntax (Git 2.23+)
-git restore <file>
-
-# Classic syntax
-git checkout -- <file>
-```
-
-> **Warning:** Discarding local modifications cannot be undone — uncommitted changes in that file are permanently lost.

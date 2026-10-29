@@ -2,22 +2,49 @@
 
 ----
 
-### Initializing a New Repository
+### Listing & Creating Tags
 
-Turn an existing local directory into a new Git repository (creates the `.git` folder):
+* **Annotated tag** *(recommended for releases)* — stores tagger identity, date, message, and signature
+* **Lightweight tag** — a simple static pointer to a commit
 
 ```bash
-git init
+# List all tags (or filter with -l "v1*")
+git tag
+
+# Create an annotated release tag vs. a lightweight tag
+git tag -a v1.4.0 -m "Release version 1.4.0"
+git tag v1.4.0-lw
 ```
 
 ----
 
-### Inspecting Line-by-Line History (`git blame`)
+### Inspecting, Pushing & Deleting Tags
 
-See who last modified each line of a file, when, and in which commit:
+By default, `git push` does not transfer tags — push them explicitly:
 
 ```bash
-git blame <file_name>
+# Inspect tag metadata and commit diff
+git show v1.4.0
+
+# Push a single tag (or all local tags with --tags)
+git push origin v1.4.0
+
+# Delete a tag locally and on the remote
+git tag -d v1.4.0 && git push origin --delete v1.4.0
+```
+
+----
+
+### Relative Commit References & Ranges
+
+Reference ancestor commits relative to `HEAD` or compare commits between branches:
+
+```bash
+git show HEAD~1        # 1 commit before HEAD (parent)
+git show HEAD~3        # 3 commits before HEAD
+
+# Show commits in your current branch not yet merged into main:
+git log main..HEAD
 ```
 
 ----
@@ -31,71 +58,6 @@ git commit --amend
 ```
 
 > **Warning:** `git commit --amend` rewrites commit history (creating a new SHA hash). Avoid amending commits that have already been pushed to shared branches.
-
-----
-
-### Listing Tags
-
-Tags mark specific points in history as important (typically release versions like `v1.4.0`):
-
-```bash
-# List all tags
-git tag
-
-# Filter tags matching a pattern (e.g., all v1.* releases)
-git tag -l "v1*"
-```
-
-----
-
-### Creating a Tag
-
-* **Annotated tag** *(recommended for releases)* — stores tagger identity, date, message, and signature
-* **Lightweight tag** — a simple static pointer to a commit
-
-```bash
-# Annotated tag (full Git object)
-git tag -a v1.4.0 -m "Release version 1.4.0"
-
-# Lightweight tag
-git tag v1.4.0-lw
-```
-
-----
-
-### Inspecting a Tag
-
-Display the tag metadata along with the commit and diff it points to:
-
-```bash
-git show <tag_name>
-```
-
-----
-
-### Pushing Tags to a Remote
-
-By default, `git push` does not transfer tags. Push them explicitly:
-
-```bash
-# Push a single tag
-git push origin <tag_name>
-
-# Push all local tags
-git push origin --tags
-```
-
-----
-
-### Deleting a Tag
-
-```bash
-# Delete a local tag
-git tag -d <tag_name>
-
-# Delete a remote tag
-git push origin --delete <tag_name>
-```
 
 ----
 
@@ -117,7 +79,7 @@ git push origin --delete <tag_name>
 
 ----
 
-### Rebasing a Branch
+### Rebasing a Branch (`git rebase`)
 
 Replay the commits of your feature branch on top of the latest target branch:
 
@@ -125,6 +87,20 @@ Replay the commits of your feature branch on top of the latest target branch:
 git switch <branch_to_rebase>
 git rebase <base_branch>
 ```
+
+----
+
+### Interactive Rebase (`git rebase -i`)
+
+Clean up, reorder, reword, or squash local commits before opening a Pull Request:
+
+```bash
+git rebase -i HEAD~3
+```
+
+* **`reword` (`r`)** — Edit a commit message
+* **`squash` (`s`) / `fixup` (`f`)** — Combine multiple small commits into a single cohesive commit
+* **`drop` (`d`)** — Remove an unwanted commit from history
 
 ----
 
@@ -136,6 +112,22 @@ git rebase <base_branch>
   * Keeps feature branches up to date with `main` before opening a Pull Request
 * **The Golden Rule of Rebasing**:
   * **Never rebase commits that are shared on a public branch** used by other teammates
+
+----
+
+### Safe Force-Pushing (`--force-with-lease`)
+
+After rebasing or amending a feature branch that was already pushed to a Pull Request, update your remote branch safely:
+
+```bash
+# Safe: fails if a teammate pushed new commits you haven't fetched yet
+git push --force-with-lease
+
+# Dangerous: blindly overwrites remote branch history
+git push --force
+```
+
+> **Best Practice:** Always prefer `--force-with-lease` over `--force` on feature branches, and never force-push to `main`.
 
 ----
 
@@ -182,26 +174,12 @@ git cherry-pick <commit_sha>
 
 ----
 
-### DevSecOps: Commit Signing (`SSH` / `GPG`)
+### Recovering "Lost" Commits (`git reflog`)
 
-Anyone can set `git config user.email` to impersonate an author. **Cryptographic commit signing** proves your identity (`Verified` badge on GitHub/GitLab):
-
-```bash
-# Sign commits using your SSH key (Git 2.34+)
-git config --global gpg.format ssh
-git config --global user.signingkey ~/.ssh/id_ed25519.pub
-git config --global commit.gpgsign true
-```
-
-----
-
-### DevSecOps: Git Hooks & Secret Scanning
-
-* **Never commit secrets** (`.env`, cloud API keys, private certs, database passwords)
-* Deleting a leaked secret in a later commit **does not remove it from `.git` history** — bots scan public commits in seconds!
-* Use [`pre-commit`](https://pre-commit.com/) hooks (`gitleaks`, `trufflehog`, linters) to block secrets **before** a commit is created:
+Your local safety net — records a chronological log of every movement of `HEAD` and branch tips (commits, checkouts, resets, rebases):
 
 ```bash
-# Install git hooks defined in .pre-commit-config.yaml
-pre-commit install
+git reflog
 ```
+
+> Even if a commit appears "lost" after a `git reset --hard` or a bad rebase, you can recover it via its reflog reference (`git switch -c recovery HEAD@{2}`).

@@ -2,32 +2,29 @@
 
 ----
 
-### Listing Remote Repositories
+### Listing & Inspecting Remotes
 
-View configured remote names and their fetch/push URLs:
+* View configured remote aliases (such as `origin` or `upstream`) and their details:
 
 ```bash
+# List remote names and their fetch/push URLs
 git remote -v
-```
 
-----
-
-### Inspecting a Remote
-
-View detailed information about a specific remote (URL, tracked branches, `HEAD`):
-
-```bash
+# View detailed info about a remote (URL, tracked branches, HEAD)
 git remote show <remote_name>
 ```
 
 ----
 
-### Adding a Remote Repository
-
-Register a new remote repository with a short alias (such as `origin` or `upstream`):
+### Adding, Renaming & Removing Remotes
 
 ```bash
+# Register a new remote repository
 git remote add <remote_name> <url>
+
+# Rename or remove an existing remote alias
+git remote rename <old_name> <new_name>
+git remote remove <remote_name>
 ```
 
 ----
@@ -47,16 +44,19 @@ cat ~/.ssh/id_ed25519.pub
 
 ----
 
-### Renaming & Removing a Remote
+### Remote-Tracking Branches (1): Initial Clone
 
-```bash
-git remote rename <old_remote_name> <new_remote_name>
-git remote remove <remote_name>
-```
+<img src="images/remote-branches-1.svg" alt="Remote Branches 1" />
 
 ----
 
-### Fetching Changes from a Remote
+### Remote-Tracking Branches (2): Diverged Work
+
+<img src="images/remote-branches-2.svg" alt="Remote Branches 2" />
+
+----
+
+### Fetching Changes (`git fetch`)
 
 Download new commits, files, and refs from a remote repository into your local database:
 
@@ -64,13 +64,19 @@ Download new commits, files, and refs from a remote repository into your local d
 git fetch <remote_name>
 ```
 
-> `git fetch` only downloads the latest data — it **never modifies** your working directory or merges automatically.
+> `git fetch` only updates remote-tracking pointers (like `origin/main`) — it **never modifies** your local working directory or merges automatically.
+
+----
+
+### Remote-Tracking Branches (3): After `git fetch`
+
+<img src="images/remote-branches-3.svg" alt="Remote Branches 3" />
 
 ----
 
 ### Pulling Changes (`fetch` + `merge`)
 
-Download the latest changes from the tracked remote branch and integrate them into your current branch:
+Download the latest changes from the tracked remote branch and integrate them into your current local branch:
 
 ```bash
 git pull <remote_name> <branch>
@@ -87,27 +93,23 @@ Publish your local commits to a remote repository:
 ```bash
 git push <remote_name> <branch>
 
-# Set upstream tracking on first push
+# Set upstream tracking on first push of a new branch
 git push -u origin <branch>
 ```
 
-> If another contributor has pushed new commits since your last pull, Git will reject a non-fast-forward push until you pull and resolve any differences.
+> If another contributor has pushed new commits since your last pull, Git will reject a non-fast-forward push until you pull and integrate their changes.
 
 ----
 
-### Safe Force-Pushing (`--force-with-lease`)
-
-After rebasing a pushed feature branch, update your remote Pull Request safely:
+### Inspecting & Deleting Remote Branches
 
 ```bash
-# Safe: fails if a teammate pushed new commits you haven't fetched yet
-git push --force-with-lease
+# Display local branches with their tracked upstream and ahead/behind counts
+git branch -vv
 
-# Dangerous: blindly overwrites remote branch history
-git push --force
+# Delete a branch on the remote server (e.g., after merging a PR)
+git push <remote_name> --delete <branch_name>
 ```
-
-> **Best Practice:** Always prefer `--force-with-lease` over `--force` on feature branches, and never force-push to `main`.
 
 ----
 

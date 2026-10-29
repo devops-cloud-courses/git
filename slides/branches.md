@@ -40,20 +40,6 @@ git branch
 
 ----
 
-### Switching Branches
-
-Switch your working directory to an existing branch:
-
-```bash
-# Modern syntax (Git 2.23+) vs. classic syntax
-git switch <branch_name>     # or: git checkout <branch_name>
-
-# Quick tip — jump back to your previous branch
-git switch -                 # or: git checkout -
-```
-
-----
-
 ### Creating a New Branch
 
 * Create a new branch pointer, or create and switch to it in one step:
@@ -68,16 +54,16 @@ git switch -c <branch_name>  # or: git checkout -b <branch_name>
 
 ----
 
-### Deleting a Branch
+### Switching Branches
 
-* Delete a local branch once your work is complete:
+Switch your working directory to an existing branch:
 
 ```bash
-# Safely delete a branch whose changes are already merged
-git branch -d <branch_name>
+# Modern syntax (Git 2.23+) vs. classic syntax
+git switch <branch_name>     # or: git checkout <branch_name>
 
-# Force-delete an unmerged branch
-git branch -D <branch_name>
+# Quick tip — jump back to your previous branch
+git switch -                 # or: git checkout -
 ```
 
 ----
@@ -106,38 +92,14 @@ When two branches modify the same lines of a file, Git pauses the merge and mark
 
 ----
 
-### Remote Branches (1)
+### Deleting a Local Branch
 
-<img src="images/remote-branches-1.svg" alt="Remote Branches 1" />
-
-----
-
-### Remote Branches (2)
-
-<img src="images/remote-branches-2.svg" alt="Remote Branches 2" />
-
-----
-
-### Remote Branches (3)
-
-<img src="images/remote-branches-3.svg" alt="Remote Branches 3" />
-
-----
-
-### Inspecting Tracked Branches
-
-Display local branches alongside their upstream remote-tracking branch and `ahead` / `behind` commit counts:
+* Delete a local branch once your work is merged:
 
 ```bash
-git branch -vv
-```
+# Safely delete a branch whose changes are already merged
+git branch -d <branch_name>
 
-----
-
-### Deleting a Remote Branch
-
-Remove a branch from the remote server (for example, after merging a Pull Request):
-
-```bash
-git push <remote_name> --delete <branch_name>
+# Force-delete an unmerged branch
+git branch -D <branch_name>
 ```

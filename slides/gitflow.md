@@ -1,4 +1,4 @@
-## Gitflow
+## Branching Workflows
 
 ----
 

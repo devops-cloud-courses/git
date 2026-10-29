@@ -1,53 +1,4 @@
-## Git Power Tools
-
-----
-
-### Short Commit Hashes (`Short SHA-1`)
-
-Display commit logs using abbreviated 7-character commit hashes:
-
-```bash
-git log --abbrev-commit
-# or compact one-line view:
-git log --oneline
-```
-
-----
-
-### Viewing the Reflog (`git reflog`)
-
-Your local safety net — records a chronological log of every movement of `HEAD` and branch tips (commits, checkouts, resets, rebases):
-
-```bash
-git reflog
-```
-
-> Even if a commit appears "lost" after a hard reset or rebase, you can almost always recover it via its reflog reference (e.g., `HEAD@{2}`).
-
-----
-
-### Relative Commit References (`HEAD~` & `HEAD^`)
-
-Reference ancestor commits relative to `HEAD` (or any branch/tag name):
-
-```bash
-git show HEAD~1   # Parent of HEAD
-git show HEAD~2   # Grandparent of HEAD
-git show HEAD~4   # 4 commits before HEAD
-```
-
-----
-
-### Selecting Commit Ranges
-
-Inspect commits that exist in one branch but not another:
-
-```bash
-git log <from>..<to>
-
-# Commits in your current branch not yet in main:
-git log main..HEAD
-```
+## Git Power Tools & DevSecOps
 
 ----
 
@@ -70,24 +21,16 @@ git add -i
 Temporarily shelve uncommitted changes so you can switch branches with a clean working directory:
 
 ```bash
-git stash
-# or with a descriptive label:
+# Push uncommitted changes onto the stash stack
 git stash push -m "WIP: refactor auth middleware"
-```
 
-----
-
-### Listing Stashes
-
-Inspect all saved stashes in your stack:
-
-```bash
+# Inspect all saved stashes in your stack
 git stash list
 ```
 
 ----
 
-### Restoring Stashed Work
+### Restoring & Dropping Stashes
 
 ```bash
 # Apply latest stash and remove it from the stash stack
@@ -96,28 +39,15 @@ git stash pop
 # Apply latest stash while keeping it in the stack
 git stash apply
 
-# Restore both working tree and previously staged state
-git stash apply --index
-```
-
-----
-
-### Dropping a Stash
-
-Delete a specific stash entry when you no longer need it:
-
-```bash
+# Delete a specific stash entry (or clear all with git stash clear)
 git stash drop <stash_id>
-
-# Or clear all stashes at once:
-git stash clear
 ```
 
 ----
 
 ### Cleaning Untracked Files (`git clean`)
 
-Remove untracked files and directories from your working tree:
+Remove untracked build artifacts, temporary files, and directories from your working tree:
 
 ```bash
 # Dry run first (preview what would be deleted):
@@ -129,17 +59,31 @@ git clean -f -d
 
 ----
 
-### Interactive Rebase (`git rebase -i`)
+### Parallel Working Directories (`git worktree`)
 
-Clean up, reorder, reword, or squash local commits before opening a Pull Request:
+Check out multiple branches simultaneously in separate folders — no need to `git stash` or clone the repository twice:
 
 ```bash
-git rebase -i HEAD~3
+# Create a second working directory checked out on a hotfix branch
+git worktree add ../project-hotfix -b hotfix/login-bug main
+
+# List or clean up active worktrees
+git worktree list
+git worktree remove ../project-hotfix
 ```
 
-* **`reword` (`r`)** — Edit a commit message
-* **`squash` (`s`) / `fixup` (`f`)** — Combine multiple small commits into a single cohesive commit
-* **`drop` (`d`)** — Remove an unwanted commit from history
+----
+
+### Inspecting Line-by-Line History (`git blame`)
+
+See who last modified each line of a file, when, and in which commit:
+
+```bash
+git blame <file_name>
+
+# Restrict blame to a specific line range (e.g., lines 40 to 60)
+git blame -L 40,60 <file_name>
+```
 
 ----
 
@@ -159,15 +103,26 @@ git bisect reset               # Return to original HEAD when done
 
 ----
 
-### Parallel Working Directories (`git worktree`)
+### DevSecOps: Commit Signing (`SSH` / `GPG`)
 
-Check out multiple branches simultaneously in separate folders — no need to `git stash` or clone the repository twice:
+Anyone can set `git config user.email` to impersonate an author. **Cryptographic commit signing** proves your identity (`Verified` badge on GitHub/GitLab):
 
 ```bash
-# Create a second working directory checked out on a hotfix branch
-git worktree add ../project-hotfix -b hotfix/login-bug main
+# Sign commits using your SSH key (Git 2.34+)
+git config --global gpg.format ssh
+git config --global user.signingkey ~/.ssh/id_ed25519.pub
+git config --global commit.gpgsign true
+```
 
-# List or clean up active worktrees
-git worktree list
-git worktree remove ../project-hotfix
+----
+
+### DevSecOps: Git Hooks & Secret Scanning
+
+* **Never commit secrets** (`.env`, cloud API keys, private certs, database passwords)
+* Deleting a leaked secret in a later commit **does not remove it from `.git` history** — bots scan public commits in seconds!
+* Use [`pre-commit`](https://pre-commit.com/) hooks (`gitleaks`, `trufflehog`, linters) to block secrets **before** a commit is created:
+
+```bash
+# Install git hooks defined in .pre-commit-config.yaml
+pre-commit install
 ```
