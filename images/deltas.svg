@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 390" width="940" height="390" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="verGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <marker id="arrowSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#64748b"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.07"/>
+    </filter>
+  </defs>
+
+  <rect width="940" height="390" rx="16" fill="#f8fafc"/>
+
+  <!-- Top Timeline Arrow -->
+  <text x="470" y="28" text-anchor="middle" font-size="14" font-weight="700" fill="#475569" letter-spacing="0.04em">CHECKINS OVER TIME (DELTA-BASED VCS)</text>
+  <line x1="40" y1="42" x2="900" y2="42" stroke="#64748b" stroke-width="2.5" marker-end="url(#arrowSlate)"/>
+
+  <!-- Version Headers -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="60" width="144" height="48" rx="24" fill="url(#verGrad)"/>
+    <text x="112" y="90" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">Version 1</text>
+
+    <rect x="218" y="60" width="144" height="48" rx="24" fill="url(#verGrad)"/>
+    <text x="290" y="90" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">Version 2</text>
+
+    <rect x="398" y="60" width="144" height="48" rx="24" fill="url(#verGrad)"/>
+    <text x="470" y="90" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">Version 3</text>
+
+    <rect x="578" y="60" width="144" height="48" rx="24" fill="url(#verGrad)"/>
+    <text x="650" y="90" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">Version 4</text>
+
+    <rect x="756" y="60" width="144" height="48" rx="24" fill="url(#verGrad)"/>
+    <text x="828" y="90" text-anchor="middle" font-size="15" font-weight="800" fill="#ffffff">Version 5</text>
+  </g>
+
+  <!-- Row 1: File A -->
+  <line x1="184" y1="168" x2="212" y2="168" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <line x1="362" y1="168" x2="572" y2="168" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="40" y="142" width="144" height="52" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <text x="112" y="174" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">File A</text>
+
+    <rect x="218" y="142" width="144" height="52" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="290" y="174" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#b45309">Δ1</text>
+
+    <rect x="578" y="142" width="144" height="52" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="650" y="174" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#b45309">Δ2</text>
+  </g>
+
+  <!-- Row 2: File B -->
+  <line x1="184" y1="248" x2="572" y2="248" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <line x1="722" y1="248" x2="750" y2="248" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="40" y="222" width="144" height="52" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <text x="112" y="254" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">File B</text>
+
+    <rect x="578" y="222" width="144" height="52" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="650" y="254" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#b45309">Δ1</text>
+
+    <rect x="756" y="222" width="144" height="52" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="828" y="254" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#b45309">Δ2</text>
+  </g>
+
+  <!-- Row 3: File C -->
+  <line x1="184" y1="328" x2="212" y2="328" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <line x1="362" y1="328" x2="392" y2="328" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+  <line x1="542" y1="328" x2="750" y2="328" stroke="#d97706" stroke-width="2.5" marker-end="url(#arrowAmber)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="40" y="302" width="144" height="52" rx="14" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+    <text x="112" y="334" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">File C</text>
+
+    <rect x="218" y="302" width="144" height="52" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="290" y="334" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#b45309">Δ1</text>
+
+    <rect x="398" y="302" width="144" height="52" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="470" y="334" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#b45309">Δ2</text>
+
+    <rect x="756" y="302" width="144" height="52" rx="14" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+    <text x="828" y="334" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#b45309">Δ3</text>
+  </g>
+</svg>

@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" width="920" height="460" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="branchGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="remoteGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="460" rx="16" fill="#f8fafc"/>
+
+  <!-- Top Container: Remote Server -->
+  <rect x="36" y="14" width="848" height="152" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="460" y="40" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e40af">git.ourcompany.com</text>
+
+  <line x1="230" y1="124" x2="196" y2="124" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="396" y1="124" x2="362" y2="124" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="562" y1="124" x2="528" y2="124" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="728" y1="124" x2="694" y2="124" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="791" y1="84" x2="791" y2="96" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="725" y="50" width="132" height="34" rx="8" fill="url(#branchGrad)"/>
+    <text x="791" y="72" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">main</text>
+
+    <rect x="64" y="102" width="126" height="44" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="127" y="130" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">0b743</text>
+
+    <rect x="230" y="102" width="126" height="44" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="293" y="130" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">a6b4c</text>
+
+    <rect x="396" y="102" width="126" height="44" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="459" y="130" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">f4265</text>
+
+    <rect x="562" y="102" width="126" height="44" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="625" y="130" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1d4ed8">31b8e</text>
+
+    <rect x="728" y="102" width="126" height="44" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="791" y="130" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1d4ed8">190a3</text>
+  </g>
+
+  <!-- Fetch Action Arrow -->
+  <line x1="330" y1="166" x2="330" y2="208" stroke="#2563eb" stroke-width="4" marker-end="url(#arrBlue)"/>
+  <rect x="360" y="172" width="220" height="30" rx="15" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="470" y="192" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">git fetch origin</text>
+
+  <!-- Bottom Container: My Computer -->
+  <rect x="36" y="214" width="848" height="232" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="460" y="238" text-anchor="middle" font-size="15" font-weight="800" fill="#0f172a">My Computer (After git fetch origin)</text>
+
+  <!-- Shared History Connectors -->
+  <line x1="230" y1="308" x2="196" y2="308" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="396" y1="308" x2="362" y2="308" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+
+  <!-- Upper Remote-Tracking Branch Connectors -->
+  <line x1="562" y1="308" x2="528" y2="308" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="728" y1="308" x2="694" y2="308" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="791" y1="274" x2="791" y2="284" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+
+  <!-- Lower Local Branch Connectors -->
+  <line x1="562" y1="366" x2="512" y2="328" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="728" y1="366" x2="694" y2="366" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="791" y1="402" x2="791" y2="392" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="711" y="240" width="160" height="34" rx="8" fill="url(#remoteGrad)"/>
+    <text x="791" y="262" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">origin/main</text>
+
+    <rect x="64" y="286" width="126" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="127" y="314" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">0b743</text>
+
+    <rect x="230" y="286" width="126" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="293" y="314" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">a6b4c</text>
+
+    <rect x="396" y="286" width="126" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="459" y="314" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">f4265</text>
+
+    <!-- Fetched Remote Commits -->
+    <rect x="562" y="286" width="126" height="44" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="625" y="314" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1d4ed8">31b8e</text>
+
+    <rect x="728" y="286" width="126" height="44" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="791" y="314" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1d4ed8">190a3</text>
+
+    <!-- Local Commits -->
+    <rect x="562" y="344" width="126" height="44" rx="22" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <text x="625" y="372" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#b91c1c">a38de</text>
+
+    <rect x="728" y="344" width="126" height="44" rx="22" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="791" y="372" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#b91c1c">893cf</text>
+
+    <rect x="725" y="402" width="132" height="34" rx="8" fill="url(#branchGrad)"/>
+    <text x="791" y="424" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">main</text>
+  </g>
+</svg>

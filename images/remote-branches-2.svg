@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 450" width="920" height="450" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="branchGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="remoteGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4f46e5"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="450" rx="16" fill="#f8fafc"/>
+
+  <!-- Top Container: Remote Server -->
+  <rect x="36" y="18" width="848" height="184" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+  <text x="460" y="46" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e40af">git.ourcompany.com (Someone else pushes 2 commits)</text>
+
+  <line x1="230" y1="136" x2="196" y2="136" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="396" y1="136" x2="362" y2="136" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="562" y1="136" x2="528" y2="136" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="728" y1="136" x2="694" y2="136" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="791" y1="94" x2="791" y2="108" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="725" y="58" width="132" height="36" rx="8" fill="url(#branchGrad)"/>
+    <text x="791" y="81" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">main</text>
+
+    <rect x="64" y="114" width="126" height="44" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="127" y="142" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">0b743</text>
+
+    <rect x="230" y="114" width="126" height="44" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="293" y="142" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">a6b4c</text>
+
+    <rect x="396" y="114" width="126" height="44" rx="22" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="459" y="142" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">f4265</text>
+
+    <rect x="562" y="114" width="126" height="44" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+    <text x="625" y="142" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1d4ed8">31b8e</text>
+
+    <rect x="728" y="114" width="126" height="44" rx="22" fill="#dbeafe" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="791" y="142" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1d4ed8">190a3</text>
+  </g>
+
+  <text x="707" y="184" text-anchor="middle" font-size="12.5" font-weight="700" fill="#1e40af">Someone else pushes upstream</text>
+
+  <!-- Bottom Container: My Computer -->
+  <rect x="36" y="230" width="848" height="202" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="460" y="256" text-anchor="middle" font-size="15" font-weight="800" fill="#0f172a">My Computer (You also commit 2 local changes)</text>
+
+  <line x1="230" y1="344" x2="196" y2="344" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="396" y1="344" x2="362" y2="344" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="562" y1="344" x2="528" y2="344" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="728" y1="344" x2="694" y2="344" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+
+  <line x1="459" y1="304" x2="459" y2="316" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+  <line x1="791" y1="384" x2="791" y2="372" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="379" y="268" width="160" height="36" rx="8" fill="url(#remoteGrad)"/>
+    <text x="459" y="291" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">origin/main</text>
+
+    <rect x="64" y="322" width="126" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="127" y="350" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">0b743</text>
+
+    <rect x="230" y="322" width="126" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="293" y="350" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">a6b4c</text>
+
+    <rect x="396" y="322" width="126" height="44" rx="22" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="459" y="350" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#0f172a">f4265</text>
+
+    <rect x="562" y="322" width="126" height="44" rx="22" fill="#fef2f2" stroke="#ef4444" stroke-width="2"/>
+    <text x="625" y="350" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#b91c1c">a38de</text>
+
+    <rect x="728" y="322" width="126" height="44" rx="22" fill="#fef2f2" stroke="#ef4444" stroke-width="2.5"/>
+    <text x="791" y="350" text-anchor="middle" font-size="14.5" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#b91c1c">893cf</text>
+
+    <rect x="725" y="384" width="132" height="36" rx="8" fill="url(#branchGrad)"/>
+    <text x="791" y="407" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">main</text>
+  </g>
+</svg>

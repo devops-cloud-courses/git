@@ -1,13 +1,30 @@
-# Git
-#### In a nutshell
+<div class="hero-slide">
 
-<i><a target="_new" href="https://twitter.com/laurentgrangeau">@laurentgrangeau</a> | <a target="_new" href="https://github.com/laurentgrangeau">github.com/laurentgrangeau</a></i>
+<h1>Git</h1>
+<h4>In a nutshell</h4>
+
+<div class="hero-links-group">
+  <div class="hero-links">
+    <a target="_new" href="https://twitter.com/laurentgrangeau">@laurentgrangeau</a>
+    <span class="sep">|</span>
+    <a target="_new" href="https://github.com/laurentgrangeau">github.com/laurentgrangeau</a>
+  </div>
+</div>
+
+<div>
+  <a href="#/2/2" class="btn-primary">How to explore this doc</a>
+</div>
+
+</div>
 
 ---
 
-## Who am I ?
+### Who am I?
 
-> Laurent Grangeau<br />
-> Cloud Solution Architect @ Sogeti
-
-<img src="https://pbs.twimg.com/profile_images/1007639151812988929/ln3iUxxF_400x400.jpg" width="200px" />
+<div class="author-card">
+  <blockquote>
+    <strong>Laurent Grangeau</strong><br />
+    Cloud Solution Architect @ Google
+  </blockquote>
+  <img class="avatar" src="images/avatar.jpg" alt="Laurent Grangeau" />
+</div>

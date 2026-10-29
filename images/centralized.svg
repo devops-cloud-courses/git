@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 430" width="920" height="430" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="serverGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <linearGradient id="fileGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#2563eb"/>
+    </linearGradient>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="430" rx="16" fill="#f8fafc"/>
+
+  <!-- Computer A -->
+  <g filter="url(#cardShadow)">
+    <rect x="44" y="36" width="280" height="162" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="184" y="76" text-anchor="middle" font-size="18" font-weight="800" fill="#0f172a">Computer A</text>
+    <text x="184" y="98" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">Working Copy Only</text>
+    <rect x="104" y="116" width="160" height="52" rx="26" fill="url(#fileGrad)"/>
+    <text x="184" y="148" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">File</text>
+  </g>
+
+  <!-- Computer B -->
+  <g filter="url(#cardShadow)">
+    <rect x="44" y="232" width="280" height="162" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="184" y="272" text-anchor="middle" font-size="18" font-weight="800" fill="#0f172a">Computer B</text>
+    <text x="184" y="294" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" fill="#64748b">Working Copy Only</text>
+    <rect x="104" y="312" width="160" height="52" rx="26" fill="url(#fileGrad)"/>
+    <text x="184" y="344" text-anchor="middle" font-size="16" font-weight="700" fill="#ffffff">File</text>
+  </g>
+
+  <!-- Central VCS Server -->
+  <g filter="url(#cardShadow)">
+    <rect x="480" y="26" width="396" height="378" rx="20" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
+    <rect x="506" y="44" width="344" height="44" rx="10" fill="url(#serverGrad)"/>
+    <text x="678" y="72" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">Central VCS Server</text>
+
+    <!-- Version Database Box -->
+    <rect x="520" y="106" width="316" height="274" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="678" y="138" text-anchor="middle" font-size="15" font-weight="700" fill="#334155">Version Database</text>
+
+    <!-- Connecting vertical line -->
+    <line x1="678" y1="190" x2="678" y2="330" stroke="#94a3b8" stroke-width="2.5"/>
+
+    <!-- Version 3 -->
+    <rect x="588" y="158" width="180" height="48" rx="24" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+    <text x="678" y="188" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1e40af">Version 3</text>
+
+    <!-- Version 2 -->
+    <rect x="588" y="230" width="180" height="48" rx="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="678" y="260" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#334155">Version 2</text>
+
+    <!-- Version 1 -->
+    <rect x="588" y="302" width="180" height="48" rx="24" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="2"/>
+    <text x="678" y="332" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#334155">Version 1</text>
+  </g>
+
+  <!-- Checkout Arrows -->
+  <line x1="520" y1="182" x2="274" y2="142" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowBlue)"/>
+  <line x1="520" y1="312" x2="274" y2="338" stroke="#2563eb" stroke-width="3" marker-end="url(#arrowBlue)"/>
+
+  <!-- Labels on Arrows -->
+  <rect x="352" y="142" width="106" height="26" rx="13" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="405" y="159" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#1d4ed8">checkout</text>
+
+  <rect x="352" y="310" width="106" height="26" rx="13" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <text x="405" y="327" text-anchor="middle" font-size="11.5" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#1d4ed8">checkout</text>
+</svg>

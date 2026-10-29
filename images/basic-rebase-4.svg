@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" width="920" height="380" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="mainGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="expGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="380" rx="16" fill="#f8fafc"/>
+
+  <!-- Command Badge -->
+  <g filter="url(#shadow)">
+    <rect x="60" y="24" width="420" height="40" rx="10" fill="#1e293b"/>
+    <text x="270" y="49" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#38bdf8">$ git switch main &amp;&amp; git merge experiment</text>
+  </g>
+
+  <!-- Parent Arrows -->
+  <!-- C1 -> C0 -->
+  <line x1="215" y1="195" x2="165" y2="195" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- C2 -> C1 -->
+  <line x1="375" y1="195" x2="325" y2="195" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- C3 -> C2 -->
+  <line x1="535" y1="195" x2="485" y2="195" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- C4' -> C3 -->
+  <line x1="705" y1="195" x2="645" y2="195" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+
+  <!-- Branch Pointer Arrows -->
+  <!-- experiment -> C4' -->
+  <line x1="760" y1="118" x2="760" y2="158" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- main -> C4' -->
+  <line x1="760" y1="276" x2="760" y2="232" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+
+  <!-- Commit Nodes -->
+  <g filter="url(#shadow)">
+    <!-- C0 -->
+    <rect x="55" y="165" width="105" height="60" rx="14" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <text x="107" y="202" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#065f46">C0</text>
+
+    <!-- C1 -->
+    <rect x="215" y="165" width="105" height="60" rx="14" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <text x="267" y="202" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#065f46">C1</text>
+
+    <!-- C2 -->
+    <rect x="375" y="165" width="105" height="60" rx="14" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <text x="427" y="202" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#065f46">C2</text>
+
+    <!-- C3 -->
+    <rect x="535" y="165" width="105" height="60" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="587" y="202" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e3a8a">C3</text>
+
+    <!-- C4' -->
+    <rect x="705" y="165" width="110" height="60" rx="14" fill="#fffbeb" stroke="#d97706" stroke-width="3"/>
+    <text x="760" y="202" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#92400e">C4'</text>
+  </g>
+
+  <!-- Branch Pointers -->
+  <g filter="url(#shadow)">
+    <rect x="680" y="74" width="160" height="42" rx="10" fill="url(#expGrad)"/>
+    <text x="760" y="101" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">experiment</text>
+
+    <rect x="680" y="278" width="160" height="42" rx="10" fill="url(#mainGrad)"/>
+    <text x="760" y="305" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main / master</text>
+  </g>
+</svg>

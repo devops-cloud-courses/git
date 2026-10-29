@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="untrackedGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#64748b"/>
+      <stop offset="100%" stop-color="#475569"/>
+    </linearGradient>
+    <linearGradient id="unmodGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="modGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="stagedGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#4f46e5"/>
+    </linearGradient>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="440" rx="16" fill="#f8fafc"/>
+
+  <!-- Lifelines -->
+  <line x1="130" y1="90" x2="130" y2="410" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="370" y1="90" x2="370" y2="410" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="600" y1="90" x2="600" y2="410" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+  <line x1="830" y1="90" x2="830" y2="410" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="8 6"/>
+
+  <!-- Header Cards -->
+  <g filter="url(#shadow)">
+    <rect x="40" y="26" width="180" height="62" rx="14" fill="url(#untrackedGrad)"/>
+    <text x="130" y="64" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">Untracked</text>
+
+    <rect x="280" y="26" width="180" height="62" rx="14" fill="url(#unmodGrad)"/>
+    <text x="370" y="64" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">Unmodified</text>
+
+    <rect x="510" y="26" width="180" height="62" rx="14" fill="url(#modGrad)"/>
+    <text x="600" y="64" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">Modified</text>
+
+    <rect x="740" y="26" width="180" height="62" rx="14" fill="url(#stagedGrad)"/>
+    <text x="830" y="64" text-anchor="middle" font-size="18" font-weight="800" fill="#ffffff">Staged</text>
+  </g>
+
+  <!-- 1. Add the file (Untracked -> Staged) -->
+  <line x1="134" y1="134" x2="818" y2="134" stroke="#2563eb" stroke-width="3.5" marker-end="url(#arrBlue)"/>
+  <g filter="url(#shadow)">
+    <rect x="350" y="114" width="240" height="38" rx="19" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="470" y="138" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Add the file (git add)</text>
+  </g>
+
+  <!-- 2. Edit the file (Unmodified -> Modified) -->
+  <line x1="374" y1="202" x2="588" y2="202" stroke="#d97706" stroke-width="3.5" marker-end="url(#arrAmber)"/>
+  <g filter="url(#shadow)">
+    <rect x="405" y="182" width="150" height="38" rx="19" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+    <text x="480" y="206" text-anchor="middle" font-size="14" font-weight="700" fill="#b45309">Edit the file</text>
+  </g>
+
+  <!-- 3. Stage the file (Modified -> Staged) -->
+  <line x1="604" y1="264" x2="818" y2="264" stroke="#2563eb" stroke-width="3.5" marker-end="url(#arrBlue)"/>
+  <g filter="url(#shadow)">
+    <rect x="618" y="244" width="190" height="38" rx="19" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+    <text x="713" y="268" text-anchor="middle" font-size="14" font-weight="700" fill="#1e40af">Stage file (git add)</text>
+  </g>
+
+  <!-- 4. Remove the file (Unmodified -> Untracked) -->
+  <line x1="366" y1="322" x2="142" y2="322" stroke="#475569" stroke-width="3.5" marker-end="url(#arrSlate)"/>
+  <g filter="url(#shadow)">
+    <rect x="160" y="302" width="190" height="38" rx="19" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+    <text x="255" y="326" text-anchor="middle" font-size="14" font-weight="700" fill="#334155">Remove (git rm)</text>
+  </g>
+
+  <!-- 5. Commit (Staged -> Unmodified) -->
+  <line x1="826" y1="382" x2="382" y2="382" stroke="#059669" stroke-width="3.5" marker-end="url(#arrGreen)"/>
+  <g filter="url(#shadow)">
+    <rect x="495" y="362" width="210" height="38" rx="19" fill="#ffffff" stroke="#6ee7b7" stroke-width="1.5"/>
+    <text x="600" y="386" text-anchor="middle" font-size="14" font-weight="700" fill="#065f46">Commit (git commit)</text>
+  </g>
+</svg>

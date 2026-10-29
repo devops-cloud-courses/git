@@ -1,92 +1,107 @@
-## Présentation de Git
+## Overview of Git
 
 ----
 
-### Utilisation des VCS
+### Why use a VCS?
 
-* VCS: Version Control System
-* Permet de naviger à travers un historique de commit
-* Permet le travail sur des branches différentes
-
-----
-
-### Le VCS le plus utilisé: Git
-
-* Crée en 2005 par Linus Torvalds
-* But: contenir les développements du noyau Linux
-* Très populaire dans la communauté Opensource 
+* **VCS** stands for **Version Control System**
+* Allows you to navigate through a complete commit history
+* Enables parallel collaboration across isolated branches
+* Provides traceability, auditability, and safe rollback
 
 ----
 
-### Centralisé vs ...
-<img src="images/centralized.png" style="background:none; border:none; box-shadow:none;"/>
+### The most widely used VCS: Git
+
+* Created in `2005` by **Linus Torvalds**
+* Originally built to manage **Linux kernel** development
+* Fast, distributed, and the de facto standard across Open Source and Enterprise
 
 ----
 
-### Distribué
-<img src="images/distributed.png" width="50%" style="background:none; border:none; box-shadow:none;"/>
+### Centralized VCS vs. ...
+
+<img src="images/centralized.svg" alt="Centralized VCS" />
 
 ----
 
-### Tout est snapshot: Avant
-<img src="images/deltas.png" style="background:none; border:none; box-shadow:none;"/>
+### Distributed VCS
+
+<img src="images/distributed.svg" alt="Distributed VCS" />
 
 ----
 
-### Tout est snapshot: Après
-<img src="images/snapshots.png" style="background:none; border:none; box-shadow:none;"/>
+### Everything is a snapshot: Deltas (Other VCS)
+
+<img src="images/deltas.svg" alt="Delta-based VCS" />
 
 ----
 
-### .git
-<img src="images/object-graph.png" style="background:none; border:none; box-shadow:none;"/>
+### Everything is a snapshot: Git Snapshots
+
+<img src="images/snapshots.svg" alt="Git Snapshots" />
 
 ----
 
-### .git
+### Inside `.git`: Object Graph
 
-* Git possède un système de check d'intégrité (basé sur un checksum SHA-1)
-* Ce sont ces checksum appelé hash qui sont à la base de toutes les operations Git
-* Presque toutes les actions ne font qu'ajouter des données à la base de données Git
+<img src="images/object-graph.svg" alt="Git Object Graph" />
 
 ----
 
-### Les trois sections du projet Git
-<img src="images/areas.png" style="background:none; border:none; box-shadow:none;"/>
+### Inside `.git`: Integrity & Hashing
+
+* Git verifies data integrity using cryptographic checksums (`SHA-1` / `SHA-256`)
+* Every object (blob, tree, commit, tag) is addressed by its **40-character hexadecimal hash**
+* Almost every Git operation only **adds data** to the Git database, making it very hard to lose committed work
 
 ----
 
-### Les trois sections du projet Git
+### The Three Areas of a Git Project
 
-* Git Directory : base de données Git pour le projet
-* Working Directory : un checkout d'une version du projet
-* Staging Area (Index) : un fichier qui enregistre quelles modifications feront parties du prochain commit
+<img src="images/areas.svg" alt="The Three Areas of Git" />
 
 ----
 
-### Installation et configuration
-* [Installation](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-* [Configuration](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
-> Attention: La partie configuration est obligatoire pour réaliser les TPs qui vont suivre.
+### The Three Areas of a Git Project
+
+* **Git Directory (`.git`)**: The compressed database storing all metadata and object history for your project
+* **Working Directory**: A single checked-out version of the project on your local filesystem
+* **Staging Area (`Index`)**: A file that tracks which modified snapshots will go into your **next commit**
 
 ----
 
-### Un peu de doc
+### Installation & First-Time Setup
 
-* [Official site](https://git-scm.com/book/en/v2)
-* [Step by step tutorial](https://www.atlassian.com/git/tutorials/what-is-git)
-* Command line help
+* [Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+* [First-Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+
+```bash
+git config --global user.name "Jane Doe"
+git config --global user.email "jane.doe@example.com"
+git config --global init.defaultBranch main
+```
+
+> **Note:** Setting your `user.name` and `user.email` is required before creating commits in the hands-on labs.
+
+----
+
+### Getting Help & Documentation
+
+* [Official Pro Git Book](https://git-scm.com/book/en/v2)
+* [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials/what-is-git)
+* Built-in command-line help:
+
 ```bash
 git help <verb>
 man git-<verb>
-git <verb> -h`
+git <verb> -h
 ```
 
 ----
 
-### Serveurs Git connus
+### Popular Git Hosting Platforms
 
-* Github
-* Gitlab
-* Bitbucket
-
+* **GitHub** — Largest open-source & enterprise platform (GitHub Actions, Pull Requests)
+* **GitLab** — Complete DevSecOps platform (self-hosted or SaaS with GitLab CI/CD)
+* **Bitbucket** — Atlassian's Git solution (tight integration with Jira & Trello)

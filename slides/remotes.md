@@ -1,29 +1,39 @@
-## Travailler en remote
+## Working with Remotes
 
 ----
 
-### Lister les remotes
+### Listing Remote Repositories
+
+View configured remote names and their fetch/push URLs:
+
 ```bash
 git remote -v
 ```
 
 ----
 
-### Plus d'information sur les remote
+### Inspecting a Remote
+
+View detailed information about a specific remote (URL, tracked branches, `HEAD`):
+
 ```bash
 git remote show <remote_name>
 ```
 
 ----
 
-### Ajouter un remote repository
+### Adding a Remote Repository
+
+Register a new remote repository with a short alias (such as `origin` or `upstream`):
+
 ```bash
 git remote add <remote_name> <url>
 ```
 
 ----
 
-### Renommer / Supprimer un remote
+### Renaming & Removing a Remote
+
 ```bash
 git remote rename <old_remote_name> <new_remote_name>
 git remote remove <remote_name>
@@ -31,24 +41,39 @@ git remote remove <remote_name>
 
 ----
 
-### Synchroniser ses remotes
+### Fetching Changes from a Remote
+
+Download new commits, files, and refs from a remote repository into your local database:
+
 ```bash
 git fetch <remote_name>
 ```
-> Cette opération ne fait que télécharger la version la plus à jour du repo. Le merge doit être effectué manuellement par la suite.
+
+> `git fetch` only downloads the latest data — it **never modifies** your working directory or merges automatically.
 
 ----
 
-### Synchroniser et merger son repo à partir d'une remote
-Télécharge les dernières modifications et tente un merge sur la branche courante
+### Pulling Changes (`fetch` + `merge`)
+
+Download the latest changes from the tracked remote branch and integrate them into your current branch:
+
 ```bash
-git pull <remote_name>
+git pull <remote_name> <branch>
 ```
 
+* Use `git pull --rebase` to replay your local commits on top of the upstream changes instead of creating a merge commit.
+
 ----
 
-### Pousser ses modifications
+### Pushing Changes to a Remote
+
+Publish your local commits to a remote repository:
+
 ```bash
 git push <remote_name> <branch>
+
+# Set upstream tracking on first push
+git push -u origin <branch>
 ```
-> Personne ne doit avoir poussé de modifications entre le dernier pull et le dernier push
+
+> If another contributor has pushed new commits since your last pull, Git will reject a non-fast-forward push until you pull and resolve any differences.

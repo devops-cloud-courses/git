@@ -1,106 +1,141 @@
-## Fonctions avancées
+## Advanced Git
 
 ----
 
-### Initialiser un repository Git dans un repertoire existant
+### Initializing a New Repository
+
+Turn an existing local directory into a new Git repository (creates the `.git` folder):
+
 ```bash
 git init
 ```
 
 ----
 
-### Afficher les author des chngements d'un fichier
+### Inspecting Line-by-Line History (`git blame`)
+
+See who last modified each line of a file, when, and in which commit:
+
 ```bash
 git blame <file_name>
 ```
 
 ----
 
-### Ajouter des modifications au dernier commit
+### Amending the Last Commit
+
+Update the most recent commit (fix a typo in the commit message or include forgotten staged changes):
+
 ```bash
 git commit --amend
 ```
-> Attention: Toute réecriture d'historique est à éviter sur les branches principales
+
+> **Warning:** `git commit --amend` rewrites commit history (creating a new SHA hash). Avoid amending commits that have already been pushed to shared branches.
 
 ----
 
-### Lister les tags
+### Listing Tags
+
+Tags mark specific points in history as important (typically release versions like `v1.4.0`):
+
 ```bash
 git tag
 ```
-Pour lister les tags commençant par v1 par exemple:
+
+* Filter tags matching a pattern (e.g., all `v1.*` releases):
+
 ```bash
 git tag -l "v1*"
 ```
 
 ----
 
-### Créer un tag
-* Annotated tags: tag complet comportant un autheur, un mail, une date, un message, ...
+### Creating a Tag
+
+* **Annotated tag** *(recommended for releases)* — stores full object metadata (tagger name, email, date, message, and optional GPG/SSH signature):
+
 ```bash
 git tag -a <tag_name> -m "<tag_message>"
 ```
-* lightweight tag: un poiteur simple sur un commit précis
+
+* **Lightweight tag** — a simple static pointer to a specific commit:
+
 ```bash
 git tag <tag_name>
 ```
 
 ----
 
-### Afficher les détails un tag
+### Inspecting a Tag
+
+Display the tag metadata along with the commit and diff it points to:
+
 ```bash
 git show <tag_name>
 ```
 
 ----
 
-### Pousser ses tags 
+### Pushing Tags to a Remote
+
+By default, `git push` does not transfer tags. Push them explicitly:
+
 ```bash
-git push <tag_name>
-git push --tags
+# Push a single tag
+git push origin <tag_name>
+
+# Push all local tags
+git push origin --tags
 ```
 
 ----
 
-### Supprimer un tag
+### Deleting a Tag
+
 ```bash
+# Delete a local tag
 git tag -d <tag_name>
+
+# Delete a remote tag
+git push origin --delete <tag_name>
 ```
 
 ----
 
-### Rebase (1)
-<img src="images/basic-rebase-1.png" style="background:none; border:none; box-shadow:none;"/>
+### Rebase (1): Diverged History
+
+<img src="images/basic-rebase-1.svg" alt="Rebase Step 1" />
 
 ----
 
-### Rebase (2)
-<img src="images/basic-rebase-3.png" style="background:none; border:none; box-shadow:none;"/>
+### Rebase (2): Replaying Commits
+
+<img src="images/basic-rebase-3.svg" alt="Rebase Step 2" />
 
 ----
 
-### Rebase (3)
-<img src="images/basic-rebase-4.png" style="background:none; border:none; box-shadow:none;"/>
+### Rebase (3): Fast-Forward Target
+
+<img src="images/basic-rebase-4.svg" alt="Rebase Step 3" />
 
 ----
 
-### Rebase une branche
+### Rebasing a Branch
+
+Replay the commits of your feature branch on top of the latest target branch:
 
 ```bash
-git checkout <branch_to_rebase>
-git rebase <branch_to_rebase_from>
+git switch <branch_to_rebase>
+git rebase <base_branch>
 ```
 
 ----
 
-### Rebase: Avantages
+### Rebase: Pros & Golden Rule
 
-* Historique propre et facile à analyser
-* Simplifie les merges avec des projets externes (forks)
-
-----
-
-### Rebase: Inconvénients
-
-* Ne jamais rebase d'une branche utilisée par quelqu'un d'autre
-
+* **Advantages**:
+  * Produces a clean, linear commit history free of unnecessary merge commits
+  * Makes `git log` and `git bisect` much easier to read and navigate
+  * Keeps feature branches up to date with `main` before opening a Pull Request
+* **The Golden Rule of Rebasing**:
+  * **Never rebase commits that are shared on a public branch** used by other teammates

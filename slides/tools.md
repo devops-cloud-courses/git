@@ -1,66 +1,85 @@
-## Git tools
+## Git Power Tools
 
 ----
 
-### Short SHA-1
+### Short Commit Hashes (`Short SHA-1`)
 
-Afficher les logs avec les hash de commit courts
+Display commit logs using abbreviated 7-character commit hashes:
+
 ```bash
 git log --abbrev-commit
+# or compact one-line view:
+git log --oneline
 ```
 
 ----
 
-### Afficher le reflog
+### Viewing the Reflog (`git reflog`)
 
-Journal des changements locaux réalisés sur le repo.
+Your local safety net — records a chronological log of every movement of `HEAD` and branch tips (commits, checkouts, resets, rebases):
+
 ```bash
 git reflog
 ```
 
+> Even if a commit appears "lost" after a hard reset or rebase, you can almost always recover it via its reflog reference (e.g., `HEAD@{2}`).
+
 ----
 
-### Sélectionner le commit parent d'un commit
+### Relative Commit References (`HEAD~` & `HEAD^`)
+
+Reference ancestor commits relative to `HEAD` (or any branch/tag name):
 
 ```bash
-git log HEAD~
-git log HEAD~~
-git log HEAD~4
+git show HEAD~1   # Parent of HEAD
+git show HEAD~2   # Grandparent of HEAD
+git show HEAD~4   # 4 commits before HEAD
 ```
 
 ----
 
-### Sélectionner une plage de commits
+### Selecting Commit Ranges
+
+Inspect commits that exist in one branch but not another:
 
 ```bash
 git log <from>..<to>
-git log master..HEAD
+
+# Commits in your current branch not yet in main:
+git log main..HEAD
 ```
 
 ----
 
-### Stage une partie d'un fichier
+### Interactive Staging (`git add -p`)
 
-On peut utiliser le add interactive pour ajouter uniquement une partie d'une fichier à la Staging Area
+Stage individual hunks or lines of a modified file instead of the entire file at once — ideal for crafting small, atomic commits:
+
 ```bash
-git add -i
-# OR
 git add -p
+# or full interactive menu:
+git add -i
 ```
-> Utiliser les commandes patch
+
+> Common patch keys: `y` (stage hunk), `n` (skip hunk), `s` (split into smaller hunks), `q` (quit).
 
 ----
 
-### Mettre de coté son travail
+### Stashing Work in Progress (`git stash`)
+
+Temporarily shelve uncommitted changes so you can switch branches with a clean working directory:
 
 ```bash
 git stash
-git stash push
+# or with a descriptive label:
+git stash push -m "WIP: refactor auth middleware"
 ```
 
 ----
 
-### Lister les stash
+### Listing Stashes
+
+Inspect all saved stashes in your stack:
 
 ```bash
 git stash list
@@ -68,37 +87,56 @@ git stash list
 
 ----
 
-### Récupérer son travail
+### Restoring Stashed Work
 
 ```bash
+# Apply latest stash and remove it from the stash stack
+git stash pop
+
+# Apply latest stash while keeping it in the stack
 git stash apply
-# En gardant les fichiers déjà dans la Staging Area
+
+# Restore both working tree and previously staged state
 git stash apply --index
 ```
 
 ----
 
-### Supprimer un stash
+### Dropping a Stash
+
+Delete a specific stash entry when you no longer need it:
 
 ```bash
 git stash drop <stash_id>
+
+# Or clear all stashes at once:
+git stash clear
 ```
 
 ----
 
-### Nettoyer votre Working Directory
+### Cleaning Untracked Files (`git clean`)
+
+Remove untracked files and directories from your working tree:
 
 ```bash
+# Dry run first (preview what would be deleted):
+git clean -n -d
+
+# Force-delete untracked files and directories:
 git clean -f -d
 ```
 
 ----
 
-### Rebase interactif
+### Interactive Rebase (`git rebase -i`)
+
+Clean up, reorder, reword, or squash local commits before opening a Pull Request:
 
 ```bash
-git rebase -i <from>..<to>
+git rebase -i HEAD~3
 ```
-* Réecrire les messages de commit
-* Squasher plusieurs commits en un
 
+* **`reword` (`r`)** — Edit a commit message
+* **`squash` (`s`) / `fixup` (`f`)** — Combine multiple small commits into a single cohesive commit
+* **`drop` (`d`)** — Remove an unwanted commit from history

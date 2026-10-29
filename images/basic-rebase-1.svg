@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 380" width="920" height="380" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <linearGradient id="mainGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef4444"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+    <linearGradient id="expGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <marker id="arrSlate" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#475569"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="920" height="380" rx="16" fill="#f8fafc"/>
+
+  <!-- Parent Arrows -->
+  <!-- C1 -> C0 -->
+  <line x1="255" y1="190" x2="195" y2="190" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- C2 -> C1 -->
+  <line x1="425" y1="190" x2="365" y2="190" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- C4 -> C2 (experiment branch) -->
+  <path d="M 615 115 C 570 115, 565 175, 540 182" fill="none" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- C3 -> C2 (main branch) -->
+  <line x1="615" y1="190" x2="545" y2="190" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+
+  <!-- Branch Pointer Arrows -->
+  <!-- experiment -> C4 -->
+  <line x1="670" y1="58" x2="670" y2="80" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+  <!-- main -> C3 -->
+  <line x1="670" y1="278" x2="670" y2="226" stroke="#475569" stroke-width="3" marker-end="url(#arrSlate)"/>
+
+  <!-- Commit Nodes -->
+  <g filter="url(#shadow)">
+    <!-- C0 -->
+    <rect x="80" y="160" width="110" height="60" rx="14" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <text x="135" y="197" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#065f46">C0</text>
+
+    <!-- C1 -->
+    <rect x="255" y="160" width="110" height="60" rx="14" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <text x="310" y="197" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#065f46">C1</text>
+
+    <!-- C2 -->
+    <rect x="425" y="160" width="110" height="60" rx="14" fill="#ffffff" stroke="#059669" stroke-width="2.5"/>
+    <text x="480" y="197" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#065f46">C2</text>
+
+    <!-- C4 (experiment) -->
+    <rect x="615" y="85" width="110" height="60" rx="14" fill="#fffbeb" stroke="#d97706" stroke-width="2.5"/>
+    <text x="670" y="122" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#92400e">C4</text>
+
+    <!-- C3 (main) -->
+    <rect x="615" y="160" width="110" height="60" rx="14" fill="#ffffff" stroke="#2563eb" stroke-width="2.5"/>
+    <text x="670" y="197" text-anchor="middle" font-size="19" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e3a8a">C3</text>
+  </g>
+
+  <!-- Branch Pointers -->
+  <g filter="url(#shadow)">
+    <rect x="590" y="16" width="160" height="42" rx="10" fill="url(#expGrad)"/>
+    <text x="670" y="43" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">experiment</text>
+
+    <rect x="590" y="280" width="160" height="42" rx="10" fill="url(#mainGrad)"/>
+    <text x="670" y="307" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main / master</text>
+  </g>
+</svg>

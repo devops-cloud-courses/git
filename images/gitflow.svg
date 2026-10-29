@@ -1,0 +1,134 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrRose" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#e11d48"/>
+    </marker>
+    <marker id="arrPurple" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7c3aed"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <marker id="arrAmber" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#d97706"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="440" rx="16" fill="#f8fafc"/>
+
+  <!-- Swimlane Backgrounds -->
+  <rect x="20" y="36" width="920" height="58" rx="10" fill="#eff6ff" opacity="0.65"/>
+  <rect x="20" y="112" width="920" height="58" rx="10" fill="#fff1f2" opacity="0.65"/>
+  <rect x="20" y="188" width="920" height="58" rx="10" fill="#f5f3ff" opacity="0.65"/>
+  <rect x="20" y="264" width="920" height="58" rx="10" fill="#ecfdf5" opacity="0.65"/>
+  <rect x="20" y="340" width="920" height="64" rx="10" fill="#fffbeb" opacity="0.75"/>
+
+  <!-- Branch Labels (Left Column) -->
+  <g filter="url(#shadow)">
+    <rect x="34" y="47" width="136" height="36" rx="8" fill="#2563eb"/>
+    <text x="102" y="70" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main</text>
+
+    <rect x="34" y="123" width="136" height="36" rx="8" fill="#e11d48"/>
+    <text x="102" y="146" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">hotfix/*</text>
+
+    <rect x="34" y="199" width="136" height="36" rx="8" fill="#7c3aed"/>
+    <text x="102" y="222" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">release/*</text>
+
+    <rect x="34" y="275" width="136" height="36" rx="8" fill="#059669"/>
+    <text x="102" y="298" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">develop</text>
+
+    <rect x="34" y="354" width="136" height="36" rx="8" fill="#d97706"/>
+    <text x="102" y="377" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">feature/*</text>
+  </g>
+
+  <!-- Continuous Timeline Lines -->
+  <!-- main (y=65) -->
+  <line x1="190" y1="65" x2="915" y2="65" stroke="#2563eb" stroke-width="3.5" marker-end="url(#arrBlue)"/>
+  <!-- develop (y=293) -->
+  <line x1="250" y1="293" x2="915" y2="293" stroke="#059669" stroke-width="3.5" marker-end="url(#arrGreen)"/>
+
+  <!-- Branch / Merge Curves -->
+  <!-- main (220,65) -> develop (260,293) initial branch -->
+  <path d="M 220 65 C 235 65, 240 293, 260 293" fill="none" stroke="#059669" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+  <!-- develop (310,293) -> feature 1 (350,372) -> (450,372) -> develop (490,293) -->
+  <path d="M 310 293 C 325 293, 330 372, 350 372 L 450 372 C 470 372, 475 293, 490 293" fill="none" stroke="#d97706" stroke-width="3"/>
+
+  <!-- develop (490,293) -> release (530,217) -> (630,217) -->
+  <path d="M 490 293 C 505 293, 510 217, 530 217 L 630 217" fill="none" stroke="#7c3aed" stroke-width="3"/>
+  <!-- release (630,217) -> main (670,65) & develop (670,293) -->
+  <path d="M 630 217 C 650 217, 650 65, 670 65" fill="none" stroke="#7c3aed" stroke-width="3"/>
+  <path d="M 630 217 C 650 217, 650 293, 670 293" fill="none" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+  <!-- main (670,65) -> hotfix (720,141) -> (790,141) -->
+  <path d="M 670 65 C 690 65, 695 141, 720 141 L 790 141" fill="none" stroke="#e11d48" stroke-width="3"/>
+  <!-- hotfix (790,141) -> main (835,65) & develop (835,293) -->
+  <path d="M 790 141 C 810 141, 815 65, 835 65" fill="none" stroke="#e11d48" stroke-width="3"/>
+  <path d="M 790 141 C 810 141, 815 293, 835 293" fill="none" stroke="#e11d48" stroke-width="2.5" stroke-dasharray="5 4"/>
+
+  <!-- develop (670,293) -> feature 2 (715,372) -> (835,372) -> develop (880,293) -->
+  <path d="M 670 293 C 690 293, 695 372, 715 372 L 835 372 C 855 372, 860 293, 880 293" fill="none" stroke="#d97706" stroke-width="3"/>
+
+  <!-- Commit Circles: main -->
+  <g filter="url(#shadow)">
+    <circle cx="220" cy="65" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+    <circle cx="670" cy="65" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+    <circle cx="835" cy="65" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+  </g>
+
+  <!-- Version Tags on main -->
+  <g filter="url(#shadow)">
+    <rect x="192" y="20" width="56" height="24" rx="6" fill="#1e40af"/>
+    <text x="220" y="36" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">v1.0</text>
+
+    <rect x="642" y="20" width="56" height="24" rx="6" fill="#1e40af"/>
+    <text x="670" y="36" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">v1.2</text>
+
+    <rect x="801" y="20" width="68" height="24" rx="6" fill="#be123c"/>
+    <text x="835" y="36" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">v1.2.1</text>
+  </g>
+
+  <!-- Commit Circles: hotfix -->
+  <g filter="url(#shadow)">
+    <circle cx="720" cy="141" r="9.5" fill="#ffffff" stroke="#e11d48" stroke-width="3"/>
+    <circle cx="790" cy="141" r="9.5" fill="#ffffff" stroke="#e11d48" stroke-width="3"/>
+  </g>
+  <text x="755" y="123" text-anchor="middle" font-size="12" font-weight="700" fill="#be123c">urgent prod fix</text>
+
+  <!-- Commit Circles: release -->
+  <g filter="url(#shadow)">
+    <circle cx="530" cy="217" r="9.5" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+    <circle cx="580" cy="217" r="9.5" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+    <circle cx="630" cy="217" r="9.5" fill="#ffffff" stroke="#7c3aed" stroke-width="3"/>
+  </g>
+  <text x="580" y="199" text-anchor="middle" font-size="12" font-weight="700" fill="#6d28d9">QA &amp; version bump</text>
+
+  <!-- Commit Circles: develop -->
+  <g filter="url(#shadow)">
+    <circle cx="260" cy="293" r="10" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <circle cx="310" cy="293" r="10" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <circle cx="490" cy="293" r="10" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <circle cx="670" cy="293" r="10" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <circle cx="835" cy="293" r="10" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <circle cx="880" cy="293" r="10" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+  </g>
+
+  <!-- Commit Circles: feature -->
+  <g filter="url(#shadow)">
+    <circle cx="350" cy="372" r="9.5" fill="#ffffff" stroke="#d97706" stroke-width="3"/>
+    <circle cx="400" cy="372" r="9.5" fill="#ffffff" stroke="#d97706" stroke-width="3"/>
+    <circle cx="450" cy="372" r="9.5" fill="#ffffff" stroke="#d97706" stroke-width="3"/>
+
+    <circle cx="715" cy="372" r="9.5" fill="#ffffff" stroke="#d97706" stroke-width="3"/>
+    <circle cx="775" cy="372" r="9.5" fill="#ffffff" stroke="#d97706" stroke-width="3"/>
+    <circle cx="835" cy="372" r="9.5" fill="#ffffff" stroke="#d97706" stroke-width="3"/>
+  </g>
+  <text x="400" y="400" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">feature/auth</text>
+  <text x="775" y="400" text-anchor="middle" font-size="12" font-weight="700" fill="#b45309">feature/billing</text>
+</svg>

@@ -1,46 +1,56 @@
-## Utilisation basique
+## Basic Usage
 
 ----
 
-### Cloner un repository Git
-* Cloner une copie d'un repository distant
+### Cloning a Git Repository
+
+* Clone a full local copy of an existing remote repository:
+
 ```bash
 git clone <url>
 ```
 
 ----
 
-### Les différents états des fichiers
+### File States & Lifecycle
 
-* untracked
-* tracked
-  * committed : le fichier a été stocké dans la base de données Git
-  * modified : le fichier a été modifié mais n'a pas encore été commité
-  * staged : le fichier modified est enregistré dans sa version actuelle pour faire partie du prochain commit
-
-----
-
-### Les différents états des fichiers
-<img src="images/lifecycle.png" style="background:none; border:none; box-shadow:none;"/>
+* **Untracked**: File is not in the last snapshot and not in the staging area
+* **Tracked**: File is known to Git and can be in one of three states:
+  * `Unmodified (Committed)` — safely stored in your local Git database
+  * `Modified` — changed in your working directory, but not staged yet
+  * `Staged` — marked in its current version to go into your next commit snapshot
 
 ----
 
-### Vérifier les statut des fichiers
-Dès que vous avez un doute sur l'état des fichiers dans votre repo
+### File States & Lifecycle
+
+<img src="images/lifecycle.svg" alt="Git File Lifecycle" />
+
+----
+
+### Checking File Status
+
+Whenever you want to inspect the current branch and state of files in your repository:
+
 ```bash
 git status
 ```
-Option fréquente:
-  * `-s` : show status concisely
+
+* Common option:
+  * `-s` / `--short` — display status in a compact format
 
 ----
 
-### Ajouter un fichier à la Staging Area
+### Staging Files
+
+Stage new (`untracked`) or updated (`modified`) files into the **Staging Area**:
+
 ```bash
 git add <files>
 ```
-> Utilisé pour les fichiers untracked ou modified de la même façon
-Exemple:
+
+* Examples:
+
 ```bash
 git add myfile.txt
 git add .
@@ -48,24 +58,30 @@ git add .
 
 ----
 
-### Ignorer des fichiers
-Pour ignorer des fichiers afin qu'ils ne soient pas ajoutés à la Staging Area lors d'un `add`, il est possible de créer un fichier .gitignore dans le repo git.
+### Ignoring Files (`.gitignore`)
 
-Exemple de fichier `.gitignore`
-```
+To prevent generated artifacts, secrets, or dependencies from being tracked or staged during `git add`, define glob patterns in a `.gitignore` file:
+
+```gitignore
 *.log
+.env
+node_modules/
 build/
 doc/**/*.pdf
 ```
 
 ----
 
-### Lister les changements
-* Fichier modified
+### Inspecting Changes (`git diff`)
+
+* View unstaged changes in **modified** files (Working Directory vs. Staging Area):
+
 ```bash
 git diff
 ```
-* Fichier staged
+
+* View **staged** changes ready for the next commit (Staging Area vs. Last Commit):
+
 ```bash
 git diff --staged
 # or
@@ -74,85 +90,114 @@ git diff --cached
 
 ----
 
-### Commiter les modifications
+### Committing Changes
+
+Record your staged snapshot into the repository history:
+
 ```bash
 git commit
 ```
-Option fréquente:
-  * `-m <commit_message>` : précise le message de commit sans ouvrir d'éditeur
+
+* Common options:
+  * `-m "<commit_message>"` — provide the commit message inline without opening an editor
+  * `-a` — automatically stage all tracked, modified files before committing
 
 ----
 
-### Supprimer des fichiers du référentiel
+### Removing Files
+
+* Remove a file from both the working directory and the staging area:
+
 ```bash
 git rm <file>
 ```
-Pour garder le fichier et le passer en untracked
+
+* Stop tracking a file in Git while **keeping it on disk** (`untracked`):
+
 ```bash
 git rm --cached <file>
 ```
 
 ----
 
-### Renommer / Déplacer des fichiers
+### Moving or Renaming Files
+
+Move or rename a tracked file and stage the change in one step:
+
 ```bash
-git mv <from> <to> 
+git mv <from> <to>
 ```
 
 ----
 
-### Afficher l'historique
+### Viewing Commit History
+
+Inspect the chronological history of commits in the current branch:
+
 ```bash
 git log
 ```
 
 ----
 
-### Git log: Affichage
+### `git log`: Formatting Options
 
-Option | Description
---- | ---
--N | N: nombre de commit à afficher
--p | affiche les diff
---stat | affiche les statistiques liées aux fichiers modifiés
---pretty | arg: type d'affichage demandé
---graph | affiche une représentation graphique de l'historique de commit
-
-----
-
-### Git log: Filtre (1)
-
-Option | Description
---- | ---
---since | time: time since commit (ex: --since=2.weeks)
---until | time: time until commit (ex: --since=2.weeks)
---author | string: partie du nom de l'autheur du commit
---commiter | string: partie du nom du commiter
+| Option | Description |
+|---|---|
+| `-n <N>` | Limit output to the last `N` commits |
+| `-p` / `--patch` | Show the full diff (patch) introduced in each commit |
+| `--stat` | Show abbreviated stats for modified files in each commit |
+| `--oneline` | Condense each commit to a single line (`short SHA` + title) |
+| `--graph` | Draw an ASCII graph of the branch and merge history |
 
 ----
 
-### Git log: Filtre (2)
+### `git log`: Filtering by Time & Author
 
-Option | Description
---- | ---
---grep | string: mot à rechercher dans les messages de commit
---all-match | affiche uniquement les commits validant toutes les règles
--S | affiche uniquement les commits ayant modifier du code contenant la <string>
---no-merges | n'affiche pas les commit de merges techniques
+| Option | Description |
+|---|---|
+| `--since=<date>` | Commits more recent than a specific date (e.g., `--since=2.weeks`) |
+| `--until=<date>` | Commits older than a specific date (e.g., `--until="2026-01-01"`) |
+| `--author=<pattern>` | Only show commits where the author matches `<pattern>` |
+| `--committer=<pattern>` | Only show commits where the committer matches `<pattern>` |
 
 ----
 
-### Unstage 
-Afin de faire passer des fichiers de la Staging Area vers le statut modified
+### `git log`: Filtering by Content
+
+| Option | Description |
+|---|---|
+| `--grep=<pattern>` | Only show commits with a commit message matching `<pattern>` |
+| `--all-match` | Require commits to match all given `--grep` / `--author` criteria |
+| `-S <string>` | *Pickaxe search*: only show commits that added or removed `<string>` |
+| `--no-merges` | Hide merge commits (commits with more than one parent) |
+
+----
+
+### Unstaging a File
+
+Move a file from the **Staging Area** back to `modified` (without losing your edits):
+
 ```bash
+# Modern syntax (Git 2.23+)
+git restore --staged <file>
+
+# Classic syntax
 git reset HEAD <file>
 ```
 
 ----
 
-### Annuler des modifications
-Afin de faire passer des fichiers du statut modified à unmodified
+### Discarding Local Modifications
+
+Revert a `modified` file in your working directory back to its last committed state:
+
 ```bash
+# Modern syntax (Git 2.23+)
+git restore <file>
+
+# Classic syntax
 git checkout -- <file>
 ```
 
+> **Warning:** Discarding local modifications cannot be undone — uncommitted changes in that file are permanently lost.

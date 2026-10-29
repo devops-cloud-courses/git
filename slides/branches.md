@@ -1,116 +1,158 @@
-## Gestion des branches
+## Branching & Merging
 
 ----
 
-### Fonctionnement des branches: trees
-<img src="images/commit-and-tree.png" style="background:none; border:none; box-shadow:none;"/>
+### How Branches Work: Commits & Trees
+
+<img src="images/commit-and-tree.svg" alt="Commit and Tree" />
 
 ----
 
-### Fonctionnement des branches: parents
-<img src="images/commits-and-parents.png" style="background:none; border:none; box-shadow:none;"/>
+### How Branches Work: Commits & Parents
+
+<img src="images/commits-and-parents.svg" alt="Commits and Parents" />
 
 ----
 
-### Fonctionnement des branches: pointeurs
-<img src="images/branch-and-history.png" style="background:none; border:none; box-shadow:none;"/>
+### How Branches Work: Lightweight Pointers
+
+<img src="images/branch-and-history.svg" alt="Branch and History" />
 
 ----
 
-### Fonctionnement des branches: nommage
+### Default Branch & `HEAD`
 
-* la branche par défaut est appelée master
-* un pointeur spécial appelé HEAD pointe sur la branche courante
+* A Git branch is simply a lightweight, movable pointer to a commit
+* The default branch is typically named `main` (or `master` in older repositories)
+* A special pointer called `HEAD` always points to your currently checked-out local branch
 
 ----
 
-### Lister les branches
+### Listing Branches
+
 ```bash
 git branch
 ```
-Option fréquentes:
-* `-a`: all
-* `-v`: last commit on each branch
+
+* Common options:
+  * `-a` / `--all` — list both local and remote-tracking branches
+  * `-v` — show the latest commit hash and subject on each branch
 
 ----
 
-### Changer de branche
+### Switching Branches
+
+Switch your working directory to an existing branch:
+
 ```bash
+# Modern syntax (Git 2.23+)
+git switch <branch_name>
+
+# Classic syntax
 git checkout <branch_name>
 ```
-Astuce: Revenir à la branch précédente
+
+* Quick tip — jump back to your previous branch:
+
 ```bash
-git checkout -
+git switch -
+# or: git checkout -
 ```
 
 ----
 
-### Créer une nouvelle branche
+### Creating a New Branch
+
+* Create a new branch pointer without switching to it:
+
 ```bash
 git branch <branch_name>
 ```
-Pour créer une branche et pointer dessus
+
+* Create a new branch and switch to it immediately:
+
 ```bash
+# Modern syntax (Git 2.23+)
+git switch -c <branch_name>
+
+# Classic syntax
 git checkout -b <branch_name>
 ```
 
 ----
 
-### Supprimer une branche
+### Deleting a Branch
+
+* Safely delete a branch whose changes have already been merged:
+
 ```bash
 git branch -d <branch_name>
 ```
-* Pour forcer le delete:
+
+* Force-delete an unmerged branch:
+
 ```bash
 git branch -D <branch_name>
 ```
 
 ----
 
-### Merger une branche
+### Merging a Branch
+
+Integrate changes from another branch into your currently active branch:
+
 ```bash
 git merge <branch_to_merge_from>
 ```
-Deux cas sont possibles:
-* Fast-forward: le code à merger est une évolution directe, pas de conflits possibles
-* three-way merge: les branches à merger ont évoluées chacune de leurs cotés
+
+* Two merge strategies can occur:
+  * **Fast-forward (`ff`)**: The target branch is a direct ancestor — Git simply moves the branch pointer forward (no merge commit needed)
+  * **Three-way merge**: Both branches have diverged — Git creates a new **merge commit** combining both histories
 
 ----
 
-### Gérer les conflits
-Parfois les three-way merges rentrent en conflits. Il faut alors
-* éditer les fichiers pointés par le conflit,
-* choisir le code à garder,
-* puis commiter les nouveaux changements.
+### Resolving Merge Conflicts
+
+When two branches modify the same lines of a file, Git pauses the merge and marks the conflict:
+
+* Inspect conflicted files using `git status`
+* Edit the files to resolve conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
+* Stage the resolved files (`git add <file>`) and complete the merge (`git commit`)
 
 ----
 
 ### Remote Branches (1)
-<img src="images/remote-branches-1.png" style="border:none; box-shadow:none;"/>
+
+<img src="images/remote-branches-1.svg" alt="Remote Branches 1" />
 
 ----
 
 ### Remote Branches (2)
-<img src="images/remote-branches-2.png" style="background:none; border:none; box-shadow:none;"/>
+
+<img src="images/remote-branches-2.svg" alt="Remote Branches 2" />
 
 ----
 
 ### Remote Branches (3)
-<img src="images/remote-branches-3.png" style="background:none; border:none; box-shadow:none;"/>
+
+<img src="images/remote-branches-3.svg" alt="Remote Branches 3" />
 
 ----
 
-### Afficher les branches trackées
-Affiche la configuration entre les branches locales et remotes. Affiche le niveau de fraicheur de chaque branche (ahead/behind).
+### Inspecting Tracked Branches
+
+Display local branches alongside their upstream remote-tracking branch and `ahead` / `behind` commit counts:
+
 ```bash
 git branch -vv
 ```
 
 ----
 
-### Supprimer une branche remote
+### Deleting a Remote Branch
+
+Remove a branch from the remote server (for example, after merging a Pull Request):
 
 ```bash
 git push <remote_name> --delete <branch_name>
 ```
-

@@ -1,66 +1,64 @@
 ## Gitflow
-### Un workflow de gestion de branches Git
 
 ----
 
-### Gitflow exemple
-<img src="images/gitflow.jpg" style="background:none; border:none; box-shadow:none;"/>
+### Gitflow: Branching Workflow
+
+<img src="images/gitflow.svg" alt="Gitflow Workflow" />
 
 ----
 
-### Branche: Master
+### Branch: `main` / `master`
 
-* Représente la branche de production
-* Branche infinie
-* C'est la branche la plus stable
-* C'est celle qu'on expose aux autres équipes
-
-----
-
-### Branche: develop
-
-* Branche d'intégration des développements
-* Branche infinie
-* Nécessite d'être stable car c'est sur cette branche que l'intégration continue tourne
+* Represents the **production-ready** state of the codebase
+* Long-lived (`infinite`) branch
+* The most stable branch in the repository — every merge into it corresponds to a production release tag
 
 ----
 
-### Branche: feature/xxx
+### Branch: `develop`
 
-* Branche de développement d'une feature
-* Sa durée de vie doit être courte
-* Son but est de compartimenter les devs
-* Elle part de la branch develop pour revenir dans develop
-
-----
-
-### Branche: bugfix/xxx
-
-* Branche de correction d'une anomalie
-* Elle peut partir de n'importe quelle branche mais doit être mergée dans la même branche à son terme
-* Sa durée de vie doit être courte
+* Main **integration branch** for ongoing development work
+* Long-lived (`infinite`) branch
+* Must remain stable at all times, as Continuous Integration (`CI`) pipelines run continuously against it
 
 ----
 
-### Branche: release/xxx
+### Branch: `feature/*`
 
-* Branche de compartimentation en vue de la validation d'une nouvelle release par une équipe externe
-* Sa durée de vie doit être courte
-* Cette branche par de develop et est mergée dans master
-
-----
-
-### Branche: support/xxx
-
-* Branche de support d'une version legacy de l'application
-* Cette branche continue à vivre aussi longtemps que la version en question est en production
-* Les changements apportés sur cette branche doivent être cherry-pickés la plupart du temps
+* Dedicated to developing a single new feature or user story
+* **Short-lived** branch designed to isolate work-in-progress
+* Branches off from `develop` and merges back into `develop` via a Pull / Merge Request
 
 ----
 
-### Intégration continue en fonction des branches
+### Branch: `bugfix/*` & `hotfix/*`
 
-* En fonction du type de branche, on va lancer différentes actions via le serveur d'intégration continue.
-* Sur develop, on lancera un scan d'analyse de code source, build, test, run, ...
-* À l'inverse, sur les branches feature/ on s'appuiera principalement sur build et test
+* Dedicated to fixing a bug in an upcoming release (`bugfix/*`) or an urgent production issue (`hotfix/*`)
+* **Short-lived** branch
+* `hotfix/*` branches off from `main` and merges back into both `main` and `develop`
 
+----
+
+### Branch: `release/*`
+
+* Prepares and stabilizes a new production release (version bump, final QA, documentation)
+* **Short-lived** branch — no new features are added here, only release bug fixes
+* Branches off from `develop` and merges into `main` (and back into `develop`)
+
+----
+
+### Branch: `support/*`
+
+* Used to maintain and patch a legacy major version still running in production
+* Lives as long as that specific legacy version is supported
+* Fixes are typically backported from `main` using `git cherry-pick`
+
+----
+
+### CI/CD Pipelines by Branch
+
+* Different branch types trigger tailored **Continuous Integration / Continuous Delivery** workflows:
+  * **`feature/*`**: Fast feedback loop — linting, unit tests, and build verification
+  * **`develop`**: Full build, integration tests, static code analysis (`SAST`), and deployment to staging
+  * **`main` / `release/*`**: Security scans, release artifact signing, and automated production deployment

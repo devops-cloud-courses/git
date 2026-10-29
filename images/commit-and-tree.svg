@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 440" width="960" height="440" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="440" rx="16" fill="#f8fafc"/>
+
+  <!-- Connectors -->
+  <line x1="286" y1="220" x2="344" y2="220" stroke="#2563eb" stroke-width="3" marker-end="url(#arrBlue)"/>
+  <line x1="616" y1="180" x2="674" y2="95" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <line x1="616" y1="220" x2="674" y2="220" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+  <line x1="616" y1="260" x2="674" y2="345" stroke="#2563eb" stroke-width="2.5" marker-end="url(#arrBlue)"/>
+
+  <!-- Left: Commit Object 98ca9 -->
+  <g filter="url(#shadow)">
+    <rect x="26" y="132" width="260" height="176" rx="16" fill="#ffffff" stroke="#4f46e5" stroke-width="2"/>
+    <rect x="26" y="132" width="260" height="38" rx="16" fill="#4f46e5"/>
+    <rect x="26" y="154" width="260" height="16" fill="#4f46e5"/>
+    <text x="44" y="156" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">commit</text>
+    <text x="268" y="156" text-anchor="end" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#e0e7ff">98ca9</text>
+
+    <text x="44" y="196" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#475569">tree</text>
+    <text x="130" y="196" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">92ec2</text>
+
+    <text x="44" y="220" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#475569">author</text>
+    <text x="130" y="220" font-size="13" font-family="'JetBrains Mono', monospace" fill="#0f172a">Scott Chacon</text>
+
+    <text x="44" y="244" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#475569">committer</text>
+    <text x="130" y="244" font-size="13" font-family="'JetBrains Mono', monospace" fill="#0f172a">Scott Chacon</text>
+
+    <line x1="44" y1="260" x2="268" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="156" y="286" text-anchor="middle" font-size="12.5" font-style="italic" fill="#334155">"The initial commit of my project"</text>
+  </g>
+
+  <!-- Center: Tree Object 92ec2 -->
+  <g filter="url(#shadow)">
+    <rect x="352" y="142" width="264" height="156" rx="16" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+    <rect x="352" y="142" width="264" height="38" rx="16" fill="#2563eb"/>
+    <rect x="352" y="164" width="264" height="16" fill="#2563eb"/>
+    <text x="370" y="166" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">tree</text>
+    <text x="598" y="166" text-anchor="end" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#dbeafe">92ec2</text>
+
+    <text x="370" y="208" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#d97706">blob</text>
+    <text x="415" y="208" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">5b1d3</text>
+    <text x="470" y="208" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#0f172a">README</text>
+
+    <text x="370" y="238" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#d97706">blob</text>
+    <text x="415" y="238" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">911e7</text>
+    <text x="470" y="238" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#0f172a">LICENSE</text>
+
+    <text x="370" y="268" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#d97706">blob</text>
+    <text x="415" y="268" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">cba0a</text>
+    <text x="470" y="268" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#0f172a">test.rb</text>
+  </g>
+
+  <!-- Right Top: Blob 5b1d3 -->
+  <g filter="url(#shadow)">
+    <rect x="682" y="24" width="252" height="114" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="682" y="24" width="252" height="34" rx="14" fill="#f59e0b"/>
+    <rect x="682" y="44" width="252" height="14" fill="#f59e0b"/>
+    <text x="700" y="46" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (README)</text>
+    <text x="916" y="46" text-anchor="end" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#fef3c7">5b1d3</text>
+    <text x="700" y="82" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">== Testing library</text>
+    <text x="700" y="102" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">Used to test Ruby projects.</text>
+  </g>
+
+  <!-- Right Middle: Blob 911e7 -->
+  <g filter="url(#shadow)">
+    <rect x="682" y="163" width="252" height="114" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="682" y="163" width="252" height="34" rx="14" fill="#f59e0b"/>
+    <rect x="682" y="183" width="252" height="14" fill="#f59e0b"/>
+    <text x="700" y="185" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (LICENSE)</text>
+    <text x="916" y="185" text-anchor="end" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#fef3c7">911e7</text>
+    <text x="700" y="221" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">The MIT License</text>
+    <text x="700" y="241" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">Copyright (c) 2008 Scott</text>
+  </g>
+
+  <!-- Right Bottom: Blob cba0a -->
+  <g filter="url(#shadow)">
+    <rect x="682" y="302" width="252" height="114" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+    <rect x="682" y="302" width="252" height="34" rx="14" fill="#f59e0b"/>
+    <rect x="682" y="322" width="252" height="14" fill="#f59e0b"/>
+    <text x="700" y="324" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (test.rb)</text>
+    <text x="916" y="324" text-anchor="end" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#fef3c7">cba0a</text>
+    <text x="700" y="360" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">require 'logger'</text>
+    <text x="700" y="380" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">require 'test/unit'</text>
+  </g>
+</svg>
