@@ -28,13 +28,13 @@
     <text x="130" y="196" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">92ec2</text>
 
     <text x="44" y="220" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#475569">author</text>
-    <text x="130" y="220" font-size="13" font-family="'JetBrains Mono', monospace" fill="#0f172a">Scott Chacon</text>
+    <text x="130" y="220" font-size="13" font-family="'JetBrains Mono', monospace" fill="#0f172a">Jane Doe</text>
 
     <text x="44" y="244" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#475569">committer</text>
-    <text x="130" y="244" font-size="13" font-family="'JetBrains Mono', monospace" fill="#0f172a">Scott Chacon</text>
+    <text x="130" y="244" font-size="13" font-family="'JetBrains Mono', monospace" fill="#0f172a">Jane Doe</text>
 
     <line x1="44" y1="260" x2="268" y2="260" stroke="#e2e8f0" stroke-width="1.5"/>
-    <text x="156" y="286" text-anchor="middle" font-size="12.5" font-style="italic" fill="#334155">"The initial commit of my project"</text>
+    <text x="156" y="286" text-anchor="middle" font-size="12.5" font-style="italic" fill="#334155">"feat: initial service setup"</text>
   </g>
 
   <!-- Center: Tree Object 92ec2 -->
@@ -47,7 +47,7 @@
 
     <text x="370" y="208" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#d97706">blob</text>
     <text x="415" y="208" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">5b1d3</text>
-    <text x="470" y="208" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#0f172a">README</text>
+    <text x="470" y="208" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#0f172a">README.md</text>
 
     <text x="370" y="238" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#d97706">blob</text>
     <text x="415" y="238" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">911e7</text>
@@ -55,7 +55,7 @@
 
     <text x="370" y="268" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#d97706">blob</text>
     <text x="415" y="268" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#2563eb">cba0a</text>
-    <text x="470" y="268" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#0f172a">test.rb</text>
+    <text x="470" y="268" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="600" fill="#0f172a">Dockerfile</text>
   </g>
 
   <!-- Right Top: Blob 5b1d3 -->
@@ -63,10 +63,10 @@
     <rect x="682" y="24" width="252" height="114" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
     <rect x="682" y="24" width="252" height="34" rx="14" fill="#f59e0b"/>
     <rect x="682" y="44" width="252" height="14" fill="#f59e0b"/>
-    <text x="700" y="46" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (README)</text>
+    <text x="700" y="46" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (README.md)</text>
     <text x="916" y="46" text-anchor="end" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#fef3c7">5b1d3</text>
-    <text x="700" y="82" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">== Testing library</text>
-    <text x="700" y="102" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">Used to test Ruby projects.</text>
+    <text x="700" y="82" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155"># Cloud API Service</text>
+    <text x="700" y="102" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">Containerized Go microservice.</text>
   </g>
 
   <!-- Right Middle: Blob 911e7 -->
@@ -76,8 +76,8 @@
     <rect x="682" y="183" width="252" height="14" fill="#f59e0b"/>
     <text x="700" y="185" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (LICENSE)</text>
     <text x="916" y="185" text-anchor="end" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#fef3c7">911e7</text>
-    <text x="700" y="221" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">The MIT License</text>
-    <text x="700" y="241" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">Copyright (c) 2008 Scott</text>
+    <text x="700" y="221" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">Apache-2.0 License</text>
+    <text x="700" y="241" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">Copyright (c) 2026 Cloud Team</text>
   </g>
 
   <!-- Right Bottom: Blob cba0a -->
@@ -85,9 +85,9 @@
     <rect x="682" y="302" width="252" height="114" rx="14" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
     <rect x="682" y="302" width="252" height="34" rx="14" fill="#f59e0b"/>
     <rect x="682" y="322" width="252" height="14" fill="#f59e0b"/>
-    <text x="700" y="324" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (test.rb)</text>
+    <text x="700" y="324" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">blob (Dockerfile)</text>
     <text x="916" y="324" text-anchor="end" font-size="12.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#fef3c7">cba0a</text>
-    <text x="700" y="360" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">require 'logger'</text>
-    <text x="700" y="380" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">require 'test/unit'</text>
+    <text x="700" y="360" font-size="12" font-family="'JetBrains Mono', monospace" fill="#334155">FROM golang:1.24-alpine</text>
+    <text x="700" y="380" font-size="11.5" font-family="'JetBrains Mono', monospace" fill="#64748b">ENTRYPOINT ["/app/server"]</text>
   </g>
 </svg>

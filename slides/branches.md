@@ -45,25 +45,25 @@ git branch
 * Create a new branch pointer, or create and switch to it in one step:
 
 ```bash
-# Create branch without switching
+# Create a branch pointer without switching
 git branch <branch_name>
 
-# Create and switch immediately (Git 2.23+ vs. classic)
-git switch -c <branch_name>  # or: git checkout -b <branch_name>
+# Create a new branch and switch to it immediately
+git switch -c <branch_name>
 ```
 
 ----
 
-### Switching Branches
+### Switching Branches (`git switch`)
 
 Switch your working directory to an existing branch:
 
 ```bash
-# Modern syntax (Git 2.23+) vs. classic syntax
-git switch <branch_name>     # or: git checkout <branch_name>
+# Switch to an existing local branch
+git switch <branch_name>
 
-# Quick tip — jump back to your previous branch
-git switch -                 # or: git checkout -
+# Quick tip — toggle back to your previously checked-out branch
+git switch -
 ```
 
 ----

@@ -33,9 +33,9 @@
 
 ### Popular Git Hosting Platforms
 
-* **GitHub** — Largest open-source & enterprise platform (GitHub Actions, Pull Requests)
-* **GitLab** — Complete DevSecOps platform (self-hosted or SaaS with GitLab CI/CD)
-* **Bitbucket** — Atlassian's Git solution (tight integration with Jira & Trello)
+* **GitHub** — Largest open-source & enterprise platform (GitHub Actions, Pull Requests, Dependabot)
+* **GitLab** — Complete DevSecOps platform (self-hosted or SaaS with GitLab CI/CD & Container Registry)
+* **Bitbucket** — Atlassian's enterprise Git platform (Bitbucket Pipelines & native Jira integration)
 
 ----
 
@@ -53,9 +53,9 @@
 
 ### Inside `.git`: Integrity & Hashing
 
-* Git verifies data integrity using cryptographic checksums (`SHA-1` / `SHA-256`)
-* Every object (`blob`, `tree`, `commit`, `tag`) is addressed by its **40-character hexadecimal hash**
-* Almost every Git operation only **adds data** to the `.git` database, making it very hard to lose committed work
+* Git verifies data integrity using cryptographic hashes (`SHA-1` 40-char hex, or `SHA-256` 64-char hex)
+* Every object (`blob`, `tree`, `commit`, `tag`) is content-addressed by the hash of its contents
+* Almost every Git operation only **appends data** to the `.git` database, making committed history tamper-evident
 
 ----
 
@@ -87,6 +87,8 @@
 git config --global user.name "Jane Doe"
 git config --global user.email "jane.doe@example.com"
 git config --global init.defaultBranch main
+git config --global pull.rebase true
+git config --global push.autoSetupRemote true
 ```
 
 > **Note:** Setting your `user.name` and `user.email` is required before creating commits in the hands-on labs.

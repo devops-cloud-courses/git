@@ -20,7 +20,7 @@
 
   <!-- Top Container: Remote Server -->
   <rect x="36" y="18" width="848" height="184" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
-  <text x="460" y="46" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e40af">git.ourcompany.com (Someone else pushes 2 commits)</text>
+  <text x="460" y="46" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e40af">github.com/org/project (Someone else pushes 2 commits)</text>
 
   <line x1="230" y1="136" x2="196" y2="136" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
   <line x1="396" y1="136" x2="362" y2="136" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>

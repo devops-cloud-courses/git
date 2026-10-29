@@ -2,19 +2,20 @@
 
 ----
 
-### Branching & Workflows
+### Branching & Release Workflows
 
-* [Gitflow Cheatsheet](https://danielkummer.github.io/git-flow-cheatsheet/)
-* [Gitflow CLI Equivalents](https://gist.github.com/JamesMGreene/cdd0ac49f90c987e45ac)
-* [GitHub Flow Guide](https://docs.github.com/en/get-started/using-github/github-flow)
 * [Trunk-Based Development](https://trunkbaseddevelopment.com/)
+* [GitHub Flow Guide](https://docs.github.com/en/get-started/using-github/github-flow)
+* [Atlassian Gitflow Workflow Guide](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 * [Conventional Commits Specification](https://www.conventionalcommits.org/)
+* [Semantic Versioning (`SemVer 2.0.0`)](https://semver.org/)
 
 ----
 
-### Reference & Interactive Learning
+### Reference, CLI Tools & Interactive Learning
 
 * [Pro Git Book (Official & Free)](https://git-scm.com/book/en/v2)
 * [Learn Git Branching (Interactive Visualizer)](https://learngitbranching.js.org/)
-* [pre-commit Framework (Git Hooks)](https://pre-commit.com/)
-* [Glob Pattern Syntax](https://en.wikipedia.org/wiki/Glob_(programming))
+* [GitHub CLI (`gh`)](https://cli.github.com/)
+* [`pre-commit` Framework & Secret Scanning Hooks](https://pre-commit.com/)
+* [Official `.gitignore` Documentation](https://git-scm.com/docs/gitignore) & [gitignore.io Templates](https://www.toptal.com/developers/gitignore)

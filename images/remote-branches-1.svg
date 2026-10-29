@@ -23,7 +23,7 @@
 
   <!-- Top Container: Remote Server -->
   <rect x="36" y="18" width="848" height="162" rx="16" fill="#eff6ff" stroke="#93c5fd" stroke-width="2"/>
-  <text x="460" y="46" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e40af">git.ourcompany.com (Remote Repository)</text>
+  <text x="460" y="46" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#1e40af">github.com/org/project (Remote Repository)</text>
 
   <line x1="296" y1="132" x2="250" y2="132" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
   <line x1="486" y1="132" x2="440" y2="132" stroke="#475569" stroke-width="2.5" marker-end="url(#arrSlate)"/>
@@ -46,7 +46,7 @@
   <!-- Clone Action Arrow -->
   <line x1="270" y1="180" x2="270" y2="226" stroke="#2563eb" stroke-width="4" marker-end="url(#arrBlue)"/>
   <rect x="300" y="188" width="490" height="32" rx="16" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
-  <text x="545" y="209" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">git clone https://git.ourcompany.com/project.git</text>
+  <text x="545" y="209" text-anchor="middle" font-size="13.5" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#1d4ed8">git clone git@github.com:org/project.git</text>
 
   <!-- Bottom Container: My Computer -->
   <rect x="36" y="234" width="848" height="198" rx="16" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>

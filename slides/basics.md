@@ -114,30 +114,30 @@ Format: `<type>(<scope>): <short summary>` — powers automated changelogs and S
 
 ----
 
-### Unstaging a File
+### Unstaging a File (`git restore --staged`)
 
-Move a file from the **Staging Area** back to `modified` (without losing your file edits):
+Move a file from the **Staging Area** back to `modified` (preserving your working directory edits):
 
 ```bash
-# Modern syntax (Git 2.23+)
+# Unstage a specific file
 git restore --staged <file>
 
-# Classic syntax
-git reset HEAD <file>
+# Unstage all currently staged files
+git restore --staged .
 ```
 
 ----
 
-### Discarding Local Modifications
+### Discarding Local Modifications (`git restore`)
 
-Revert a `modified` file in your working directory back to its last committed state:
+Revert a `modified` file in your working directory back to its last committed state (`HEAD`):
 
 ```bash
-# Modern syntax (Git 2.23+)
+# Discard unstaged edits in a specific file
 git restore <file>
 
-# Classic syntax
-git checkout -- <file>
+# Discard all unstaged modifications in the current directory
+git restore .
 ```
 
 > **Warning:** Discarding local modifications cannot be undone — uncommitted changes in that file are permanently lost.

@@ -93,7 +93,7 @@ Publish your local commits to a remote repository:
 ```bash
 git push <remote_name> <branch>
 
-# Set upstream tracking on first push of a new branch
+# Set upstream tracking on first push (or auto-enable via push.autoSetupRemote)
 git push -u origin <branch>
 ```
 

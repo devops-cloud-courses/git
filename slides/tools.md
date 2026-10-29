@@ -2,17 +2,16 @@
 
 ----
 
-### Interactive Staging (`git add -p`)
+### Interactive Patch Mode (`-p` / `--patch`)
 
-Stage individual hunks or lines of a modified file instead of the entire file at once — ideal for crafting small, atomic commits:
+Stage, unstage, or discard individual **hunks** of a file instead of the whole file at once — ideal for crafting small, atomic commits:
 
 ```bash
-git add -p
-# or full interactive menu:
-git add -i
+git add -p <file>       # Interactively stage selected hunks
+git restore -p <file>   # Interactively discard selected hunks
 ```
 
-> Common patch keys: `y` (stage hunk), `n` (skip hunk), `s` (split into smaller hunks), `q` (quit).
+> Common patch keys: `y` (apply hunk), `n` (skip hunk), `s` (split into smaller hunks), `q` (quit).
 
 ----
 
