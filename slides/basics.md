@@ -104,6 +104,23 @@ git commit
 
 ----
 
+### Commit Hygiene: Conventional Commits
+
+Structure commit messages so humans and CI/CD pipelines can automatically generate changelogs and bump Semantic Versions (`SemVer`):
+
+```text
+<type>(<optional scope>): <short summary>
+```
+
+| Type | Purpose | SemVer Impact |
+|---|---|---|
+| `feat` | Introduce a new feature (`feat(auth): add OAuth2 PKCE flow`) | `MINOR` (`0.x.0`) |
+| `fix` | Patch a bug (`fix(api): handle null pagination cursor`) | `PATCH` (`0.0.x`) |
+| `docs` / `chore` / `refactor` | Documentation, maintenance, or internal restructuring | None |
+| `feat!` / `BREAKING CHANGE:` | Incompatible API or infrastructure change | `MAJOR` (`x.0.0`) |
+
+----
+
 ### Removing Files
 
 * Remove a file from both the working directory and the staging area:

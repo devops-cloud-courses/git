@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="960" height="430" font-family="'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+  <defs>
+    <marker id="arrBlue" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrGreen" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="5.5" markerHeight="5.5" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="430" rx="16" fill="#f8fafc"/>
+
+  <!-- Swimlane Backgrounds -->
+  <rect x="24" y="42" width="912" height="145" rx="14" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+  <rect x="24" y="212" width="912" height="185" rx="14" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+
+  <!-- Lane Titles -->
+  <g filter="url(#shadow)">
+    <rect x="42" y="58" width="155" height="38" rx="9" fill="#2563eb"/>
+    <text x="119" y="82" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main (trunk)</text>
+  </g>
+  <text x="119" y="118" text-anchor="middle" font-size="12" font-weight="700" fill="#1e40af">Always deployable</text>
+  <text x="119" y="136" text-anchor="middle" font-size="12" font-weight="600" fill="#3b82f6">Continuous CD</text>
+
+  <g filter="url(#shadow)">
+    <rect x="42" y="232" width="155" height="38" rx="9" fill="#059669"/>
+    <text x="119" y="256" text-anchor="middle" font-size="14" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">short-lived</text>
+  </g>
+  <text x="119" y="292" text-anchor="middle" font-size="12" font-weight="700" fill="#065f46">Feature branches</text>
+  <text x="119" y="310" text-anchor="middle" font-size="12" font-weight="600" fill="#059669">&lt; 1–2 days lifespan</text>
+
+  <!-- Main Trunk Line (y=115) -->
+  <line x1="215" y1="115" x2="910" y2="115" stroke="#2563eb" stroke-width="4" marker-end="url(#arrBlue)"/>
+
+  <!-- Short-lived Branch 1: (250,115) -> (290,305) -> (420,305) -> (465,115) -->
+  <path d="M 250 115 C 268 115, 272 305, 295 305 L 415 305 C 440 305, 445 115, 465 115" fill="none" stroke="#059669" stroke-width="3"/>
+
+  <!-- Short-lived Branch 2: (555,115) -> (595,305) -> (725,305) -> (770,115) -->
+  <path d="M 555 115 C 573 115, 577 305, 600 305 L 720 305 C 745 305, 750 115, 770 115" fill="none" stroke="#059669" stroke-width="3"/>
+
+  <!-- Trunk Commit Nodes -->
+  <g filter="url(#shadow)">
+    <circle cx="250" cy="115" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+    <circle cx="465" cy="115" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+    <circle cx="555" cy="115" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+    <circle cx="770" cy="115" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+    <circle cx="860" cy="115" r="11" fill="#ffffff" stroke="#2563eb" stroke-width="3.5"/>
+  </g>
+
+  <!-- Automated CD Deploy Badges on main -->
+  <g filter="url(#shadow)">
+    <rect x="210" y="62" width="80" height="26" rx="7" fill="#1e40af"/>
+    <text x="250" y="79" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">🚀 prod</text>
+
+    <rect x="425" y="62" width="80" height="26" rx="7" fill="#1e40af"/>
+    <text x="465" y="79" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">🚀 prod</text>
+
+    <rect x="515" y="62" width="80" height="26" rx="7" fill="#1e40af"/>
+    <text x="555" y="79" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">🚀 prod</text>
+
+    <rect x="730" y="62" width="80" height="26" rx="7" fill="#1e40af"/>
+    <text x="770" y="79" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">🚀 prod</text>
+
+    <rect x="820" y="62" width="80" height="26" rx="7" fill="#1e40af"/>
+    <text x="860" y="79" text-anchor="middle" font-size="11" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#ffffff">🚀 prod</text>
+  </g>
+
+  <!-- Feature Branch 1 Commits & PR Badge -->
+  <g filter="url(#shadow)">
+    <circle cx="305" cy="305" r="9.5" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <circle cx="355" cy="305" r="9.5" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+
+    <rect x="380" y="287" width="68" height="34" rx="8" fill="#047857"/>
+    <text x="414" y="309" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">PR ✓</text>
+  </g>
+  <text x="355" y="352" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">feat/oauth-login</text>
+  <text x="355" y="372" text-anchor="middle" font-size="12" font-weight="600" fill="#047857">CI + Code Review + Squash Merge</text>
+
+  <!-- Feature Branch 2 Commits & PR Badge -->
+  <g filter="url(#shadow)">
+    <circle cx="610" cy="305" r="9.5" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+    <circle cx="660" cy="305" r="9.5" fill="#ffffff" stroke="#059669" stroke-width="3"/>
+
+    <rect x="685" y="287" width="68" height="34" rx="8" fill="#047857"/>
+    <text x="719" y="309" text-anchor="middle" font-size="12" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">PR ✓</text>
+  </g>
+  <text x="660" y="352" text-anchor="middle" font-size="13" font-family="'JetBrains Mono', monospace" font-weight="700" fill="#065f46">fix/cache-ttl</text>
+  <text x="660" y="372" text-anchor="middle" font-size="12" font-weight="600" fill="#047857">Feature Flags + Automated Tests</text>
+</svg>

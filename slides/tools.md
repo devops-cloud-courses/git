@@ -140,3 +140,34 @@ git rebase -i HEAD~3
 * **`reword` (`r`)** — Edit a commit message
 * **`squash` (`s`) / `fixup` (`f`)** — Combine multiple small commits into a single cohesive commit
 * **`drop` (`d`)** — Remove an unwanted commit from history
+
+----
+
+### Binary Search Debugging (`git bisect`)
+
+Pinpoint the exact commit that introduced a regression across hundreds of commits in `O(log N)` steps:
+
+```bash
+git bisect start
+git bisect bad                 # Current commit is broken
+git bisect good v1.2.0         # Last known working tag/commit
+
+# Automate verification using any test command or script:
+git bisect run npm test
+git bisect reset               # Return to original HEAD when done
+```
+
+----
+
+### Parallel Working Directories (`git worktree`)
+
+Check out multiple branches simultaneously in separate folders — no need to `git stash` or clone the repository twice:
+
+```bash
+# Create a second working directory checked out on a hotfix branch
+git worktree add ../project-hotfix -b hotfix/login-bug main
+
+# List or clean up active worktrees
+git worktree list
+git worktree remove ../project-hotfix
+```

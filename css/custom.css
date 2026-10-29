@@ -353,22 +353,13 @@
 .reveal table td:first-child {
   text-align: left;
   white-space: nowrap;
-  width: 220px;
 }
 
 .reveal table tbody td:first-child {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
   color: var(--accent-primary);
-  font-size: 0.98em;
-}
-
-/* Layer Name column on 3-column tables */
-.reveal table td:nth-child(2):not(:last-child) {
-  font-weight: 700;
-  color: var(--text-primary);
-  white-space: nowrap;
-  width: 240px;
+  font-size: 0.96em;
 }
 
 /* Images & Diagrams */

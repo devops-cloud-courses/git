@@ -32,6 +32,21 @@ git remote add <remote_name> <url>
 
 ----
 
+### Authentication: HTTPS vs. SSH Keys
+
+* **HTTPS** (`https://github.com/org/repo.git`) — authenticates via Personal Access Tokens (`PAT`) or OAuth credential helpers
+* **SSH** (`git@github.com:org/repo.git`) — industry standard for developers and CI runners using `Ed25519` cryptographic key pairs:
+
+```bash
+# Generate a modern Ed25519 SSH key pair
+ssh-keygen -t ed25519 -C "jane.doe@example.com"
+
+# Copy your public key to GitHub / GitLab Settings -> SSH Keys
+cat ~/.ssh/id_ed25519.pub
+```
+
+----
+
 ### Renaming & Removing a Remote
 
 ```bash
@@ -77,3 +92,31 @@ git push -u origin <branch>
 ```
 
 > If another contributor has pushed new commits since your last pull, Git will reject a non-fast-forward push until you pull and resolve any differences.
+
+----
+
+### Safe Force-Pushing (`--force-with-lease`)
+
+After rebasing or amending a feature branch that was already pushed to a Pull Request, a regular `git push` is rejected because history changed:
+
+```bash
+# Safe: fails if a teammate pushed new commits you haven't fetched yet
+git push --force-with-lease
+
+# Dangerous: blindly overwrites remote branch history
+git push --force
+```
+
+> **Best Practice:** Always prefer `--force-with-lease` over `--force` on feature branches, and never force-push to `main`.
+
+----
+
+### Pull Requests (PR) & Merge Strategies
+
+When merging a reviewed Pull Request (GitHub) or Merge Request (GitLab) into `main`:
+
+| Strategy | How It Works | Best For |
+|---|---|---|
+| `Merge commit` | Preserves all branch commits and creates a merge commit (`--no-ff`) | Explicit feature boundaries & audit trails |
+| `Squash and merge` | Combines all PR commits into a **single clean commit** on `main` | Keeping `main` linear when PRs have noisy `WIP` commits |
+| `Rebase and merge` | Replays each PR commit linearly onto the tip of `main` | Clean linear history with atomic, well-crafted commits |

@@ -62,3 +62,20 @@
   * **`feature/*`**: Fast feedback loop — linting, unit tests, and build verification
   * **`develop`**: Full build, integration tests, static code analysis (`SAST`), and deployment to staging
   * **`main` / `release/*`**: Security scans, release artifact signing, and automated production deployment
+
+----
+
+### Modern Alternative: Trunk-Based & GitHub Flow
+
+<img src="images/trunk-based.svg" alt="Trunk-Based Development & GitHub Flow" />
+
+----
+
+### Gitflow vs. Trunk-Based Development
+
+| Dimension | Gitflow | Trunk-Based / GitHub Flow |
+|---|---|---|
+| `Long-lived branches` | `main` + `develop` (+ `support/*`) | Single trunk (`main` is always deployable) |
+| `Branch lifespan` | Days to weeks (`feature/*`, `release/*`) | Hours to `< 2 days` (small, frequent PRs) |
+| `Incomplete features` | Isolated on long-lived branches | Hidden behind **Feature Flags** in `main` |
+| `Best suited for` | Scheduled / versioned software, mobile apps, regulated releases | Cloud-native SaaS, microservices, high-velocity **CI/CD & DORA** teams |
