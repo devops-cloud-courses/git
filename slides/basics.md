@@ -74,18 +74,14 @@ doc/**/*.pdf
 
 ### Inspecting Changes (`git diff`)
 
-* View unstaged changes in **modified** files (Working Directory vs. Staging Area):
+* Compare unstaged vs. staged changes in your repository:
 
 ```bash
+# Unstaged changes (Working Directory vs. Staging Area)
 git diff
-```
 
-* View **staged** changes ready for the next commit (Staging Area vs. Last Commit):
-
-```bash
-git diff --staged
-# or
-git diff --cached
+# Staged changes ready for next commit (Staging Area vs. HEAD)
+git diff --staged   # (or: git diff --cached)
 ```
 
 ----
@@ -106,32 +102,26 @@ git commit
 
 ### Commit Hygiene: Conventional Commits
 
-Structure commit messages so humans and CI/CD pipelines can automatically generate changelogs and bump Semantic Versions (`SemVer`):
-
-```text
-<type>(<optional scope>): <short summary>
-```
+Format: `<type>(<scope>): <short summary>` — powers automated changelogs and Semantic Versioning (`SemVer`):
 
 | Type | Purpose | SemVer Impact |
 |---|---|---|
-| `feat` | Introduce a new feature (`feat(auth): add OAuth2 PKCE flow`) | `MINOR` (`0.x.0`) |
-| `fix` | Patch a bug (`fix(api): handle null pagination cursor`) | `PATCH` (`0.0.x`) |
-| `docs` / `chore` / `refactor` | Documentation, maintenance, or internal restructuring | None |
-| `feat!` / `BREAKING CHANGE:` | Incompatible API or infrastructure change | `MAJOR` (`x.0.0`) |
+| `feat` | Introduce a new feature (`feat(auth): add OAuth2 PKCE`) | `MINOR` (`0.x.0`) |
+| `fix` | Patch a bug (`fix(api): handle null cursor`) | `PATCH` (`0.0.x`) |
+| `docs` / `chore` / `refactor` | Documentation, maintenance, or code restructuring | None |
+| `feat!` / `BREAKING CHANGE` | Incompatible API or infrastructure change | `MAJOR` (`x.0.0`) |
 
 ----
 
 ### Removing Files
 
-* Remove a file from both the working directory and the staging area:
+* Remove tracked files from Git (with or without deleting them from disk):
 
 ```bash
+# Remove from both Working Directory and Staging Area
 git rm <file>
-```
 
-* Stop tracking a file in Git while **keeping it on disk** (`untracked`):
-
-```bash
+# Stop tracking in Git while keeping the file on disk (untracked)
 git rm --cached <file>
 ```
 

@@ -83,6 +83,6 @@
     <text x="760" y="111" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">experiment</text>
 
     <rect x="510" y="298" width="160" height="42" rx="10" fill="url(#mainGrad)"/>
-    <text x="590" y="325" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main / master</text>
+    <text x="590" y="325" text-anchor="middle" font-size="15" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main</text>
   </g>
 </svg>

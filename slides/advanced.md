@@ -39,12 +39,10 @@ git commit --amend
 Tags mark specific points in history as important (typically release versions like `v1.4.0`):
 
 ```bash
+# List all tags
 git tag
-```
 
-* Filter tags matching a pattern (e.g., all `v1.*` releases):
-
-```bash
+# Filter tags matching a pattern (e.g., all v1.* releases)
 git tag -l "v1*"
 ```
 
@@ -52,16 +50,15 @@ git tag -l "v1*"
 
 ### Creating a Tag
 
-* **Annotated tag** *(recommended for releases)* — stores full object metadata (tagger name, email, date, message, and optional GPG/SSH signature):
+* **Annotated tag** *(recommended for releases)* — stores tagger identity, date, message, and signature
+* **Lightweight tag** — a simple static pointer to a commit
 
 ```bash
-git tag -a <tag_name> -m "<tag_message>"
-```
+# Annotated tag (full Git object)
+git tag -a v1.4.0 -m "Release version 1.4.0"
 
-* **Lightweight tag** — a simple static pointer to a specific commit:
-
-```bash
-git tag <tag_name>
+# Lightweight tag
+git tag v1.4.0-lw
 ```
 
 ----

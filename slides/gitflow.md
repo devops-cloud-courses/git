@@ -8,7 +8,7 @@
 
 ----
 
-### Branch: `main` / `master`
+### Branch: `main`
 
 * Represents the **production-ready** state of the codebase
 * Long-lived (`infinite`) branch

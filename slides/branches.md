@@ -23,7 +23,7 @@
 ### Default Branch & `HEAD`
 
 * A Git branch is simply a lightweight, movable pointer to a commit
-* The default branch is typically named `main` (or `master` in older repositories)
+* The default branch is named `main`
 * A special pointer called `HEAD` always points to your currently checked-out local branch
 
 ----
@@ -45,53 +45,38 @@ git branch
 Switch your working directory to an existing branch:
 
 ```bash
-# Modern syntax (Git 2.23+)
-git switch <branch_name>
+# Modern syntax (Git 2.23+) vs. classic syntax
+git switch <branch_name>     # or: git checkout <branch_name>
 
-# Classic syntax
-git checkout <branch_name>
-```
-
-* Quick tip — jump back to your previous branch:
-
-```bash
-git switch -
-# or: git checkout -
+# Quick tip — jump back to your previous branch
+git switch -                 # or: git checkout -
 ```
 
 ----
 
 ### Creating a New Branch
 
-* Create a new branch pointer without switching to it:
+* Create a new branch pointer, or create and switch to it in one step:
 
 ```bash
+# Create branch without switching
 git branch <branch_name>
-```
 
-* Create a new branch and switch to it immediately:
-
-```bash
-# Modern syntax (Git 2.23+)
-git switch -c <branch_name>
-
-# Classic syntax
-git checkout -b <branch_name>
+# Create and switch immediately (Git 2.23+ vs. classic)
+git switch -c <branch_name>  # or: git checkout -b <branch_name>
 ```
 
 ----
 
 ### Deleting a Branch
 
-* Safely delete a branch whose changes have already been merged:
+* Delete a local branch once your work is complete:
 
 ```bash
+# Safely delete a branch whose changes are already merged
 git branch -d <branch_name>
-```
 
-* Force-delete an unmerged branch:
-
-```bash
+# Force-delete an unmerged branch
 git branch -D <branch_name>
 ```
 

@@ -97,7 +97,7 @@ git push -u origin <branch>
 
 ### Safe Force-Pushing (`--force-with-lease`)
 
-After rebasing or amending a feature branch that was already pushed to a Pull Request, a regular `git push` is rejected because history changed:
+After rebasing a pushed feature branch, update your remote Pull Request safely:
 
 ```bash
 # Safe: fails if a teammate pushed new commits you haven't fetched yet

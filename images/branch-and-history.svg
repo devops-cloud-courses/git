@@ -47,7 +47,7 @@
     <text x="580" y="151" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">v1.0</text>
 
     <rect x="695" y="118" width="180" height="52" rx="12" fill="url(#branchGrad)"/>
-    <text x="785" y="151" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main / master</text>
+    <text x="785" y="151" text-anchor="middle" font-size="16" font-family="'JetBrains Mono', monospace" font-weight="800" fill="#ffffff">main</text>
   </g>
 
   <!-- Commit Nodes -->
