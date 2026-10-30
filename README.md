@@ -3,7 +3,8 @@
 An interactive presentation on **Git, Branching Workflows, and DevSecOps**, powered by [Reveal.js 6.0.2](https://revealjs.com/).
 
 * **Live Presentation:** [https://devops-cloud-courses.github.io/git](https://devops-cloud-courses.github.io/git)
-* **PDF Export View:** [https://devops-cloud-courses.github.io/git/?print-pdf&pdfSeparateFragments=false](https://devops-cloud-courses.github.io/git/?print-pdf&pdfSeparateFragments=false)
+* **Download PDF (Latest Release):** [git-in-a-nutshell.pdf](https://github.com/devops-cloud-courses/git/releases/latest/download/git-in-a-nutshell.pdf)
+* **Browser Print View:** [https://devops-cloud-courses.github.io/git/?print-pdf&pdfSeparateFragments=false](https://devops-cloud-courses.github.io/git/?print-pdf&pdfSeparateFragments=false)
 
 ---
 
@@ -45,6 +46,8 @@ An interactive presentation on **Git, Branching Workflows, and DevSecOps**, powe
 
 ```text
 .
+├── .github/workflows/
+│   └── export-pdf.yml  # GitHub Actions workflow exporting slides to PDF & GitHub Releases
 ├── index.html          # Reveal.js 6.0.2 entrypoint (jsDelivr CDN, zero-build setup)
 ├── css/
 │   └── custom.css      # Custom light theme, typography (Inter & JetBrains Mono), and responsive layout
@@ -77,7 +80,13 @@ Then open [http://localhost:8080](http://localhost:8080).
 
 ---
 
-## Exporting to PDF (Chrome / Chromium)
+## Exporting to PDF
+
+### Automated GitHub Release (Recommended)
+Every push to slide assets on `master` triggers the [Export Slides to PDF & Release](.github/workflows/export-pdf.yml) GitHub Actions workflow using Playwright Chromium (`?print-pdf&pdfSeparateFragments=false`), publishing **`git-in-a-nutshell.pdf`** both as a workflow artifact and as a versioned GitHub Release asset (`vYYYY.MM.DD-<run>`):
+* **Direct Download:** [git-in-a-nutshell.pdf](https://github.com/devops-cloud-courses/git/releases/latest/download/git-in-a-nutshell.pdf)
+
+### Manual Export via Chrome / Chromium
 
 1. Open [https://devops-cloud-courses.github.io/git/?print-pdf&pdfSeparateFragments=false](https://devops-cloud-courses.github.io/git/?print-pdf&pdfSeparateFragments=false)
 2. Press `Cmd + P` (macOS) or `Ctrl + P` (Windows/Linux)
